@@ -15,4 +15,4 @@ BASE_DIR = Path(__file__).resolve().parent
 
 # Directorio donde se encuetran los html de los items P/L
 # ITEMS_PL_DIR = Path("items/pl")
-ITEMS_PL_DIR = BASE_DIR / "items" / "pl"
+ITEMS_PL_DIR = BASE_DIR / "items" / "PL"
