@@ -19,6 +19,10 @@ def render_items():
     init_items(items)
     init_clickstream()
 
+    #Esto es para debug, se tiene que borrar
+    st.write("DEBUG _items:", st.session_state.get("_items"))
+    st.write("DEBUG _item_index:", st.session_state.get("_item_index"))
+
     # 2️⃣ Ítem actual
     item = current_item()
     #st.caption(item["item_id"])
