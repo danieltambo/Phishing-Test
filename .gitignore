@@ -1,0 +1,17 @@
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Streamlit
+.streamlit/secrets.toml
+
+# Node / frontend (por si acaso)
+node_modules/
+dist/
+build/
+
+# OS
+.DS_Store
+Thumbs.db
