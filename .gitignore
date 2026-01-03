@@ -10,7 +10,10 @@ venv/
 # Node / frontend (por si acaso)
 node_modules/
 dist/
-build/
+
+# Allow Streamlit component runtime build
+!clickstream/build/
+
 
 # OS
 .DS_Store
