@@ -9,6 +9,17 @@ from helpers.ui_texts import CONTEXT_INTRO_TEXT, CONTEXT_QUESTIONS
 from helpers.context_service import init_context_responses, init_context_buffer
 from helpers.context_service import freeze_context_responses
 
+# -------------------------------------------------
+# Comprueba si todas las pregunas de contexto han sido contestadas.
+# Es un helper local.
+# -------------------------------------------------
+def all_context_answered():
+    return all(
+        v is not None
+        for v in st.session_state.context_buffer.values()
+    )
+
+
 
 # -------------------------------------------------
 # Renderiza el cuestionario de contexto.
@@ -76,6 +87,12 @@ def render_context():
     # Al finalizar el cuestionario, se congelan todas las respuestas de contexto y se avanza a la pantalla de guardado.
     if st.button("Guardar Respuestas", key="context_next"):
 
+        # Comrpueba que todas las preguntas se hayan contestado
+        if not all_context_answered():
+            st.warning("Por favor, responde a todas las preguntas antes de continuar.")
+            
+            # Eliminar el siguiente # en produccion. Solo para pruebas.
+            # return # <- En produccion quitar # antes de return
         
         # Convierte el buffer temporal en respuestas definitivas de tipo CTX.
         freeze_context_responses(st.session_state.context_buffer)
