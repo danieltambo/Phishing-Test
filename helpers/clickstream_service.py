@@ -1,7 +1,17 @@
-# helpers/clickstream_service.py
+# -------------------------------------------------
+# Servicio de gestión del clickstream.
+# Gestiona el ciclo de vida de los eventos de interacción:
+# captura por ítem, congelado y acumulación final.
+# -------------------------------------------------
+
 
 import streamlit as st
 
+# -------------------------------------------------
+# Inicializa las estructuras de clickstream en sesión.
+# Crea un buffer para los eventos del ítem activo
+# y un buffer global para los eventos congelados.
+# -------------------------------------------------
 
 def init_clickstream():
     if "current_item_events" not in st.session_state:
@@ -11,29 +21,32 @@ def init_clickstream():
         st.session_state.events_buffer = []
 
 
+# -------------------------------------------------
+# Registra un evento de interacción del ítem activo.
+# El evento se almacena temporalmente hasta que
+# el ítem se cierra mediante el congelado.
+# -------------------------------------------------
+
 def push(event: dict):
-    """
-    Guarda SIEMPRE el evento del ítem activo
-    """
     st.session_state.current_item_events.append(event)
 
+# -------------------------------------------------
+# Congela los eventos del ítem activo.
+# Enriquece cada evento con el item_id,
+# los mueve al buffer final y limpia el buffer activo.
+# -------------------------------------------------
 
 def freeze_item_events(item_id: str):
-    """
-    Congela los eventos del ítem actual:
-    - añade item_id a cada evento
-    - los mueve al buffer final
-    - limpia los eventos activos
-    """
-    
-    #Esto es temporal
-    #print("FREEZE CALLED FOR:", item_id)
-    #print("N current events:", len(st.session_state["current_item_events"]))
-
+ 
     # Lista temporal para los eventos congelados de este ítem
     frozen_events = []
 
-    # Recorremos los eventos del ítem activo
+    # -------------------------------------------------
+    # Transformación de eventos crudos a filas finales.
+    # Se normaliza la estructura de cada evento antes
+    # de añadirlo al buffer global.
+    # -------------------------------------------------
+
     for e in st.session_state["current_item_events"]:
         row = {
             "item_id": item_id,
@@ -52,8 +65,11 @@ def freeze_item_events(item_id: str):
 
 
 
+# -------------------------------------------------
+# Devuelve todos los eventos congelados.
+# Esta función expone los eventos listos
+# para su persistencia externa.
+# -------------------------------------------------
+
 def get_all_events() -> list[dict]:
-    """
-    Devuelve todos los eventos congelados listos para persistir
-    """
     return st.session_state.get("events_buffer", [])

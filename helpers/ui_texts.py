@@ -1,26 +1,39 @@
+# -------------------------------------------------
+# Textos y contenidos estáticos de la interfaz.
+# Centraliza títulos, textos informativos y
+# preguntas de contexto del estudio.
+# -------------------------------------------------
+
+
+# -------------------------------------------------
+# Definición de headers por pantalla.
+# Asocia cada estado del flujo con el título
+# mostrado en el header de la interfaz.
+# -------------------------------------------------
 
 HEADERS = {
     "INTRO": {
-        "title": "  ¿Serías capaz de identificar un correo phishing?",
-        "subtitle": None
+        "title": "  ¿Serías capaz de identificar un correo phishing?"
     },
     "ITEMS": {
-        "title": "¿Cómo clasificarías este correo?",
-        "subtitle": None
+        "title": "¿Cómo clasificarías este correo?"
     },
   
   "CONTEXT": {
-          "title": "Por último... ¿Cómo sueles responder a los correos en tu dia a dia?",
-          "subtitle": None
+          "title": "Por último... ¿Cómo sueles responder a los correos en tu dia a dia?"
       },
   
   "SAVE": {
-          "title": "Gracias por participar",
-          "subtitle": None
+          "title": "Gracias por participar"
       },
 
 }
 
+
+# -------------------------------------------------
+# Texto introductorio del estudio.
+# Se muestra al inicio e informa sobre el objetivo, dinámica y contexto de la investigación.
+# -------------------------------------------------
 
 INTRO_TEXT = """
 <div style="font-size:1.1rem; line-height:1.6;">
@@ -43,11 +56,16 @@ INTRO_TEXT = """
 
 <em>
 Proyecto de doctorado en Psicología y Salud – Universitat Oberta de Catalunya (UOC)<br>
-Contacto: Daniel de la Fuente – 
+Contacto: Daniel de la Fuente Tambo – 
 <a href="mailto:ddela_fuente@uoc.edu">ddela_fuente@uoc.edu</a>
 </em>
 
 """
+
+# -------------------------------------------------
+# Texto de consentimiento informado.
+# Resume las condiciones de participación, uso de datos y confidencialidad.
+# -------------------------------------------------
 
 CONSENT_TEXT = """
 - Este estudio forma parte de un proyecto de investigación de la **Universitat Oberta de Catalunya (UOC)** y está en fase de desarrollo.
@@ -59,9 +77,18 @@ CONSENT_TEXT = """
 Si tienes cualquier duda sobre el estudio, puedes contactar con el equipo investigador.
 """
 
+# -------------------------------------------------
+# Texto informativo para la recogida opcional del correo electrónico del participante.
+# -------------------------------------------------
+
 MAIL_TEXT = """
 Si deseas recibir información general sobre el estudio o resultados agregados, puedes dejar tu correo electrónico. Este dato no se vinculará a tus respuestas.
 """
+
+# -------------------------------------------------
+# Texto introductorio del bloque de contexto.
+# Indica el cierre de la parte principal del estudio y prepara al participante para el cuestionario final.
+# -------------------------------------------------
 
 CONTEXT_INTRO_TEXT = """
 <strong>Ya has terminado la parte principal del estudio.</strong><br>
@@ -69,7 +96,18 @@ Ahora solo queda un breve cuestinario. <br>
 No hay respuestas correctas o incorrectas: nos interesa tu opinión.<br>
 """
 
+# -------------------------------------------------
+# Definición de las preguntas de contexto (CTX).
+# Cada pregunta se define mediante un diccionario que especifica identificador, texto y tipo de respuesta.
+# -------------------------------------------------
+
 CONTEXT_QUESTIONS = [
+    # Cada entrada define una pregunta de contexto con:
+    # - id: identificador único (CTX_xx)
+    # - question: texto mostrado al participante
+    # - type: tipo de respuesta (choice, likert_5, etc.)
+    # - options / anchors: configuración específica del tipo
+
     {
         "id": "CTX_01",
         "question": "1. Suelo recibir aproximadamente este número de correos electrónicos al día.",
@@ -110,7 +148,7 @@ CONTEXT_QUESTIONS = [
     },
     {
         "id": "CTX_07",
-        "question": "7. Que yo sepa, he recibido alguna vez un correo engañoso.",
+        "question": "7. Que yo sepa, he recibido alguna vez un correo engañoso (phishing).",
         "type": "choice",
         "options": ["Sí", "No", "No estoy seguro"]
     },
@@ -134,7 +172,10 @@ CONTEXT_QUESTIONS = [
     },
 ]
 
-
+# -------------------------------------------------
+# Texto de cierre del estudio.
+# Se muestra tras finalizar el test y confirmar que las respuestas han sido registradas.
+# -------------------------------------------------
 SAVE_TEXT = """
 <strong>Gracias por tu participación.</strong><br><br>
 Tus respuestas se han registrado correctamente y contribuirán a un proyecto de investigación sobre cómo las personas interpretan correos electrónicos engañosos.<br><br>

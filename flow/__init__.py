@@ -1,7 +1,14 @@
-#_init_.py
+# -------------------------------------------------
+# Fachada del módulo flow.
+# Expone de forma controlada los estados del flujo
+# y la función de construcción del mapa de estados.
+# -------------------------------------------------
 
-# Facade
-
+# -------------------------------------------------
+# Reexportación explícita del contrato del flujo.
+# Permite importar estados y utilidades del flujo
+# desde el módulo flow sin acceder a su implementación.
+# -------------------------------------------------
 from .flow import (
     INTRO,
     ITEMS,
@@ -9,6 +16,12 @@ from .flow import (
     SAVE,
     build_state_map,
 )
+
+# -------------------------------------------------
+# API pública del módulo flow.
+# Limita explícitamente los símbolos accesibles
+# al usar importaciones con comodines.
+# -------------------------------------------------
 
 __all__ = [
     "INTRO",

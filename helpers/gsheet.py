@@ -1,15 +1,21 @@
-# helpers/gsheet.py
+# -------------------------------------------------
+# Capa de acceso a datos (Google Sheets).
+# Encapsula toda la lógica de autenticación,
+# acceso y escritura en hojas de cálculo.
+# -------------------------------------------------
 
 import streamlit as st
 import gspread
 from google.oauth2.service_account import Credentials
-from datetime import datetime
+import time
 
 
+# -------------------------------------------------
+# Autenticación con Google Sheets.
+# Inicializa el cliente usando credenciales
+# definidas en secrets.toml (Streamlit).
+# -------------------------------------------------
 
-# -----------------------------
-# Autenticación
-# -----------------------------
 def get_gsheet_client():
     scopes = [
         "https://www.googleapis.com/auth/spreadsheets",
@@ -24,9 +30,18 @@ def get_gsheet_client():
     return gspread.authorize(creds)
 
 
-# -----------------------------
-# Abrir hoja
-# -----------------------------
+# -------------------------------------------------
+# Utilidades de acceso a hojas y worksheets.
+# Permiten abrir documentos y hojas concretas
+# de forma uniforme desde la aplicación.
+# -------------------------------------------------
+
+# -------------------------------------------------
+# Abre un documento de Google Sheets.
+# Permite identificarlo por nombre o por ID,
+# pero exige que al menos uno esté definido.
+# -------------------------------------------------
+
 def open_sheet(sheet_name=None, sheet_id=None):
     if not sheet_name and not sheet_id:
         raise ValueError("Debes indicar sheet_name o sheet_id")
@@ -38,6 +53,13 @@ def open_sheet(sheet_name=None, sheet_id=None):
     else:
         return gc.open(sheet_name)
 
+
+# -------------------------------------------------
+# Obtiene una worksheet concreta dentro de un sheet.
+# Aísla la lógica de acceso a hojas específicas
+# usadas por el instrumento.
+# -------------------------------------------------
+
 def get_worksheet(sheet_id: str, worksheet_name: str):
     """
     Devuelve una worksheet concreta a partir del sheet_id
@@ -45,109 +67,12 @@ def get_worksheet(sheet_id: str, worksheet_name: str):
     sh = open_sheet(sheet_id=sheet_id)
     return sh.worksheet(worksheet_name)
 
-# --- LEGACY (wide format, no usar en PhD final) ---
-def append_row(
-    data: dict,
-    sheet_name=None,
-    sheet_id=None,
-    worksheet_name=None,
-    add_timestamp=True
-):
-    """
-    data: dict con las respuestas
-    """
 
-    sh = open_sheet(sheet_name=sheet_name, sheet_id=sheet_id)
-    ws = sh.worksheet(worksheet_name) if worksheet_name else sh.sheet1
-
-    row = data.copy()
-
-    if add_timestamp:
-        row["timestamp"] = datetime.utcnow().isoformat()
-
-    # --- CABECERAS ---
-    headers = ws.row_values(1)
-
-    # Si la hoja está vacía, crear cabeceras
-    if not headers:
-        headers = list(row.keys())
-        ws.append_row(headers)
-
-    # 🔑 Detectar nuevas columnas (claves no existentes)
-    new_keys = [k for k in row.keys() if k not in headers]
-
-    if new_keys:
-        headers.extend(new_keys)
-        ws.update('1:1', [headers])  # actualizar fila de cabecera
-
-    # --- FILA ---
-    values = [row.get(h, "") for h in headers]
-    ws.append_row(values)
-
-def save_responses(
-    data: dict,
-    sheet_name=None,
-    sheet_id=None,
-    worksheet_name=None,
-    add_timestamp=True
-):
-    """
-    Alias semántico de append_row para uso desde la app.
-    """
-    return append_row(
-        data=data,
-        sheet_name=sheet_name,
-        sheet_id=sheet_id,
-        worksheet_name=worksheet_name,
-        add_timestamp=add_timestamp
-    )
-
-# --- LEGACY (events específico, sustituido por append_rows_dicts) ---
-def append_events_old(
-    events: list[dict],
-    sheet_name=None,
-    sheet_id=None,
-    worksheet_name="events_raw"
-):
-    """
-    Guarda una lista de eventos crudos en formato largo.
-    Cada evento = una fila.
-    """
-
-    if not events:
-        return
-
-    sh = open_sheet(sheet_name=sheet_name, sheet_id=sheet_id)
-    ws = sh.worksheet(worksheet_name)
-
-    # Cabecera fija y controlada
-    headers = [
-        "session_id",
-        "item_id",
-        "event",
-        "target",
-        "timestamp",
-        "duration", #es es para los hover_end
-    ]
-
-    # Crear cabecera si no existe
-    existing_headers = ws.row_values(1)
-    if not existing_headers:
-        ws.append_row(headers)
-
-    rows = []
-    for e in events:
-        rows.append([
-            e.get("session_id", ""),
-            e.get("item_id", ""),
-            e.get("event", ""),
-            e.get("target", ""),
-            e.get("timestamp", ""),
-            e.get("duration",""),
-        ])
-
-    # Escritura en bloque (importante para rendimiento)
-    ws.append_rows(rows, value_input_option="RAW")
+# -------------------------------------------------
+# Añade una fila representada como diccionario.
+# Garantiza consistencia de cabeceras y permite
+# evolución dinámica del esquema.
+# -------------------------------------------------
 
 def append_row_dict(*, row: dict, sheet_id: str, worksheet_name: str):
     worksheet = get_worksheet(sheet_id, worksheet_name)
@@ -170,6 +95,13 @@ def append_row_dict(*, row: dict, sheet_id: str, worksheet_name: str):
     values = [row.get(h) for h in headers]
     worksheet.append_row(values)
 
+
+# -------------------------------------------------
+# Guarda una respuesta individual en formato largo.
+# Normaliza la estructura común a ítems experimentales
+# y preguntas de contexto.
+# -------------------------------------------------
+
 def save_response_long(
     *,
     session_id: str,
@@ -186,7 +118,7 @@ def save_response_long(
         "item_id": item_id,
         "item_type": item_type,
         "value": value,
-        "timestamp": datetime.utcnow().isoformat(),
+        "timestamp": int(time.time() * 1000) # antiguo datetime.utcnow().isoformat(),
     }
 
     append_row_dict(
@@ -194,6 +126,12 @@ def save_response_long(
         sheet_id=sheet_id,
         worksheet_name=worksheet_name,
     )
+
+# -------------------------------------------------
+# Inserta múltiples filas en bloque.
+# Optimiza la escritura en Google Sheets y
+# asegura consistencia de cabeceras.
+# -------------------------------------------------
 
 def append_rows_dicts(
     *,

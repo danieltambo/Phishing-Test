@@ -1,8 +1,20 @@
-<!-- ===============================
-     Decision Panel (standalone)
-     =============================== -->
+<!-- =================================================
+     Decision Panel (componente reutilizable)
+     Permite al usuario clasificar un correo como
+     phishing o legítimo y avanzar al siguiente ítem.
+     ================================================= -->
+
+
+<!--
+  Estilos específicos del panel de decisión.
+  El ancho máximo se alinea con el del correo
+  para mantener consistencia visual.
+-->
 
 <style>
+
+  /* Contenedor principal del panel de decisión.
+     Se centra y se ajusta al ancho del estímulo. */
   .decision-panel {
     margin-top: 10px;
     padding: 0px;
@@ -64,6 +76,7 @@
     justify-content: center;
   }
 
+  /* Estado inicial del botón "Siguiente": deshabilitado hasta que exista una decisión */
   .next-btn {
   padding: 12px 18px;
   font-size: 18px;
@@ -77,6 +90,7 @@
   cursor: default;
 }
 
+/* Estado habilitado tras seleccionar una opción */
 .next-btn.enabled {
   opacity: 1;
   pointer-events: auto;      /* AHORA sí clicable */
@@ -87,8 +101,18 @@
 
 <div class="decision-panel">
 
+  <!--
+    Grupo de botones de decisión.
+    Gestiona la selección visual y habilita el botón "Siguiente" cuando hay una elección.
+  -->
+ <!--
+      Lógica inline de selección: (onclick)
+      - Marca visualmente el botón seleccionado
+      - Desmarca el resto
+      - Habilita el botón "Siguiente"
+  -->
   <div class="decision-buttons" 
-      onclick="
+        onclick="
         if (event.target.classList.contains('decision-btn')) {
           this.querySelectorAll('.decision-btn')
             .forEach(b => b.classList.remove('selected'));
@@ -97,8 +121,11 @@
           document.getElementById('nextBtn').classList.add('enabled');
         }" 
   >
-  <!-- esta funcion de onclick es para marcar boton -->
 
+    <!--  Botones de clasificación del correo.
+      El atributo data-track define el evento  que será capturado por el clickstream. -->
+
+    <!-- data-track se utiliza para instrumentar la interacción y registrar la decisión. -->
     <button
       type="button"
       class="decision-btn"
@@ -116,6 +143,9 @@
     </button>
   </div>
 
+  <!-- Botón de avance al siguiente ítem. 
+    Permanece deshabilitado hasta que el usuario ha tomado una decisión.
+  -->
   <div class="decision-next">
     <button
       type="button"
@@ -127,7 +157,7 @@
     </button>
   </div>
 
-   <!-- PARA FIX DE COMPONENTE Q CORTA LA PARTE FINAL -->
+   <!-- Fix visual para evitar que el iframe del componente corte la parte inferior del panel. -->
    <div> <br> <br> </div>
 </div>
 

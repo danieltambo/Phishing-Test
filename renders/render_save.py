@@ -1,18 +1,40 @@
-# renders/items.py
+# -------------------------------------------------
+# Render de cierre y persistencia del estudio.
+# Centraliza el guardado de contactos, respuestas
+# y eventos al finalizar el test.
+# -------------------------------------------------
 
+# -------------------------------------------------
+# Dependencias para persistencia y cierre del flujo.
+# Incluye acceso a sesión, respuestas, eventos
+# y escritura en Google Sheets.
+# -------------------------------------------------
 import streamlit as st
-from datetime import datetime
+import time
 
 from helpers.clickstream_service import get_all_events
 from helpers.session import get_session_id
 from helpers.gsheet import  append_rows_dicts
 from helpers.response_service import get_all_responses
 from helpers.ui_texts import SAVE_TEXT
-
 from config import GSHEET_ID, RESPONSES_SHEET, EVENTS_SHEET, CONTACT_INFO_SHEET
 
+
+# -------------------------------------------------
+# Persiste todos los datos de la sesión actual.
+# Guarda de forma separada:
+# - información de contacto (si existe)
+# - respuestas del estudio
+# - eventos de interacción (clickstream)
+# -------------------------------------------------
+
 def persistir_todo():
+
+    # Identificador único de la sesión actual
     session_id = get_session_id()
+
+    # Persistencia opcional del correo electrónico  proporcionado por el participante.
+
     # ---------- CONTACT INFO ----------
     email = st.session_state.get("email")
 
@@ -20,7 +42,7 @@ def persistir_todo():
         email_row = {
             "session_id": session_id,
             "email": email,
-            "timestamp": datetime.utcnow().isoformat(),
+            "timestamp": int(time.time() * 1000) 
         }
         
         append_rows_dicts(
@@ -29,6 +51,7 @@ def persistir_todo():
             worksheet_name=CONTACT_INFO_SHEET,
         )
         
+    # Persistencia de todas las respuestas del estudio (ítems P/L + preguntas de contexto).
 
     # ---------- RESPONSES ----------
     responses = get_all_responses()
@@ -49,6 +72,8 @@ def persistir_todo():
             sheet_id=GSHEET_ID,
             worksheet_name=RESPONSES_SHEET,
         )
+
+    # Persistencia de los eventos de interacción capturados durante la ejecución del test.
 
     # ---------- EVENTS ----------
     events = get_all_events()
@@ -71,9 +96,18 @@ def persistir_todo():
             worksheet_name=EVENTS_SHEET,
         )
 
+
+# -------------------------------------------------
+# Render de la pantalla final del estudio.
+# Ejecuta la persistencia y muestra confirmación al participante.
+# -------------------------------------------------
+
 def render_save():
+
+    # Limpia el contenido previo de la pantalla
     st.empty()
 
+    # Feedback visual durante el proceso de guardado
     with st.spinner("Guardando tus respuestas…"):
         persistir_todo()
 

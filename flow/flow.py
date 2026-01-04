@@ -1,12 +1,23 @@
-# -------------------------
-# Estados (contrato mínimo)
-# -------------------------
+# -------------------------------------------------
+# Definición del flujo y estados del test.
+# Este archivo actúa como contrato del flujo 
+# -------------------------------------------------
+
+
+# -------------------------------------------------
+# Estados del flujo.
+# Definen las fases posibles del test y su orden lógico.
+# Actúan como contrato compartido entre módulos.
+# -------------------------------------------------
 
 INTRO = "INTRO"
 ITEMS = "ITEMS"
 CONTEXT = "CONTEXT"
 SAVE = "SAVE"
 
+# -------------------------------------------------
+# Lista completa de estados válidos del sistema.
+# -------------------------------------------------
 ALL_STATES = [
     INTRO,
     ITEMS,
@@ -15,9 +26,10 @@ ALL_STATES = [
 ]
 
 
-# -------------------------
-# Máquina de estados
-# -------------------------
+# -------------------------------------------------
+# Mapa de estados
+# Asocia cada estado con su función de render correspondiente.
+# -------------------------------------------------
 
 def build_state_map(
     render_intro,

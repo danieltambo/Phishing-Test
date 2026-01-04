@@ -1,5 +1,12 @@
-# renders/render_items.py
+# -------------------------------------------------
+# Render de los ítems P/L del estudio.
+# Gestiona la presentación de cada correo, la captura de eventos (clickstream) y el registro de la decisión del participante.
+# -------------------------------------------------
 
+# -------------------------------------------------
+# Dependencias del render de ítems.
+# Incluye carga de estímulos HTML, gestión de estado, captura de eventos y control del flujo experimental.
+# -------------------------------------------------
 import streamlit as st
 from clickstream import clickstream  # Mi componente
 
@@ -11,66 +18,73 @@ from helpers.clickstream_service import init_clickstream, push, freeze_item_even
 from helpers.events import is_decision_event, extract_decision, is_next_event
 
 
+# -------------------------------------------------
+# Renderiza un único ítem del test. 
+# Esta función se ejecuta de forma reactiva y responde a los eventos emitidos por el componente.
+# -------------------------------------------------
 
 def render_items():
     
-    # 1️⃣ Inicialización idempotente
+    # 1️⃣  Inicialización idempotente del servicio de ítems y del sistema de captura de eventos.
     items = load_pl_items()
     init_items(items)
     init_clickstream()
 
-    #Esto es para debug, se tiene que borrar
-    #st.write("DEBUG _items:", st.session_state.get("_items"))
-    #st.write("DEBUG _item_index:", st.session_state.get("_item_index"))
-
-    # 2️⃣ Ítem actual
+    # 2️⃣ Recupera el ítem activo según el índice actual
     item = current_item()
-    #st.caption(item["item_id"])
-
+    
+    # Información de progreso para el participante
     i = current_index()
     total = total_items()
     st.caption(f"Ejercicio {i+1} de {total}")
     
+
+    # Composición del estímulo completo: correo HTML + panel de decisión
     mail_html = load_item_html(item)
     decision_html = load_shared_html("decision_panel.html")
     full_html = mail_html + decision_html
 
-    # 3️⃣ Render del componente
+    # 3️⃣ Render del componente. Devuelve eventos de interacción del usuario.
     event = clickstream(
        key=f"mail_{item['item_id']}",   #Pone la clave indexada al item_id para tener una clave unica y una iframe distinto en cada item
         html=full_html,
     )
     
+    # Si no hay evento, no se ejecuta ninguna lógica
     if event is None:
         return
     
-    # 4️⃣ Evento crudo SIEMPRE
+    # 4️⃣ Registra SIEMPRE el evento crudo del ítem activo
     push(event)
 
-    # 5️⃣ Selección PHISHING / LEGIT
+    # 5️⃣ Evento de decisión: el usuario clasifica el correo como phishing o legítimo
     if is_decision_event(event):
         decision = extract_decision(event)
         record_response(decision)
         return
 
-    # 6️⃣ Botón “Siguiente”
+    # 6️⃣ # Evento de avance al siguiente ítem
     if is_next_event(event):
 
+        # Evita avanzar si no existe decisión registrada
         if not has_response():
             st.warning("Selecciona Phishing o Legítimo antes de continuar")
             return
 
-        # Esto es temporal
-        #print("NEXT_ITEM for:", item["item_id"])
+        # Congela los eventos del ítem actual y los añade al buffer global
         freeze_item_events(item["item_id"])
 
+        # Si es el último ítem, se pasa al bloque de contexto
         if is_last():
             go_to("CONTEXT")
+
         else:
+            # Avanza al siguiente ítem del test
             next_item()
             st.rerun()
 
 
+    # Seguridad adicional para capturar eventos no relacionados con la decisión explícita
     if event and event.get("event") != "decision":
         push(event)
 
