@@ -1,5 +1,5 @@
 # -------------------------------------------------
-# Helpers para la gestión del clickstream por ítem.
+# Helpers para la gestión del event_logger por ítem.
 # Acumula eventos de interacción del usuario y los
 # congela cuando se toma una decisión.
 # -------------------------------------------------

@@ -1,6 +1,6 @@
 # -------------------------------------------------
 # Render de los ítems P/L del estudio.
-# Gestiona la presentación de cada correo, la captura de eventos (clickstream) y el registro de la decisión del participante.
+# Gestiona la presentación de cada correo, la captura de eventos (event_logger) y el registro de la decisión del participante.
 # -------------------------------------------------
 
 # -------------------------------------------------
@@ -8,13 +8,13 @@
 # Incluye carga de estímulos HTML, gestión de estado, captura de eventos y control del flujo experimental.
 # -------------------------------------------------
 import streamlit as st
-from clickstream import clickstream  # Mi componente
+from event_logger import event_logger  # Mi componente
 
 from helpers.flow_helpers import go_to
 from helpers.items_loader import load_pl_items, load_item_html
 from helpers.html_loader import load_shared_html
 from helpers.item_service import init_items, current_item, record_response, has_response, next_item, is_last, current_index, total_items
-from helpers.clickstream_service import init_clickstream, push, freeze_item_events
+from helpers.event_logger_service import init_event_logger, push, freeze_item_events
 from helpers.events import is_decision_event, extract_decision, is_next_event
 
 
@@ -28,7 +28,7 @@ def render_items():
     # 1️⃣  Inicialización idempotente del servicio de ítems y del sistema de captura de eventos.
     items = load_pl_items()
     init_items(items)
-    init_clickstream()
+    init_event_logger() 
 
     # 2️⃣ Recupera el ítem activo según el índice actual
     item = current_item()
@@ -45,11 +45,14 @@ def render_items():
     full_html = mail_html + decision_html
 
     # 3️⃣ Render del componente. Devuelve eventos de interacción del usuario.
-    event = clickstream(
+    event = event_logger(
        key=f"mail_{item['item_id']}",   #Pone la clave indexada al item_id para tener una clave unica y una iframe distinto en cada item
         html=full_html,
     )
-    
+
+    # Es una prueba para ver si llega
+    st.write("EVENT RAW:", event)
+
     # Si no hay evento, no se ejecuta ninguna lógica
     if event is None:
         return
@@ -83,8 +86,8 @@ def render_items():
             next_item()
             st.rerun()
 
-
+    # BORRAR
     # Seguridad adicional para capturar eventos no relacionados con la decisión explícita
-    if event and event.get("event") != "decision":
-        push(event)
+    #if event and event.get("event") != "decision":
+    #    push(event)
 

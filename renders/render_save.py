@@ -12,7 +12,7 @@
 import streamlit as st
 import time
 
-from helpers.clickstream_service import get_all_events
+from helpers.event_logger_service import get_all_events
 from helpers.session import get_session_id
 from helpers.gsheet import  append_rows_dicts
 from helpers.response_service import get_all_responses
@@ -25,7 +25,7 @@ from config import GSHEET_ID, RESPONSES_SHEET, EVENTS_SHEET, CONTACT_INFO_SHEET
 # Guarda de forma separada:
 # - información de contacto (si existe)
 # - respuestas del estudio
-# - eventos de interacción (clickstream)
+# - eventos de interacción (event_logger)
 # -------------------------------------------------
 
 def persistir_todo():

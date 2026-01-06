@@ -12,7 +12,7 @@ node_modules/
 dist/
 
 # Allow Streamlit component runtime build
-!clickstream/build/
+!event_logger/build/
 
 
 # OS

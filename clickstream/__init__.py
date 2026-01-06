@@ -1,2 +1,0 @@
-from .clickstream import clickstream
-

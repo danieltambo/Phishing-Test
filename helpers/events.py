@@ -12,7 +12,7 @@
 
 def is_decision_event(event: dict) -> bool:
     return (
-        event.get("event") == "click" and
+        event.get("type") == "click" and
         event.get("target") in {"decision_phishing", "decision_legitimo"}
     )
 
@@ -21,7 +21,15 @@ def is_decision_event(event: dict) -> bool:
 # de avanzar  al siguiente ítem.
 # -------------------------------------------------
 
-def is_next_event(event: dict) -> bool:
+def is_next_event(event):
+    return (
+        event is not None
+        and event.get("type") == "click"
+        and event.get("target") == "next_item"
+    )
+
+# BORRAR
+def is_next_event_old(event: dict) -> bool:
     return (
         event.get("event") == "click" and
         event.get("target") == "next_item"

@@ -27,10 +27,10 @@ La lógica de avance se basa en un índice interno:
 - `_items`
 - `_item_index`
 
-## 4. Captura de comportamiento (clickstream)
+## 4. Captura de comportamiento (event_logger)
 
 Las interacciones del usuario se capturan mediante un componente
-custom de Streamlit (clickstream).
+custom de Streamlit (event_logger).
 
 Los eventos se almacenan como secuencias temporales
 para análisis posterior (RT, patrones, HMM, etc.).

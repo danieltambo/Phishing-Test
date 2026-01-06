@@ -1,5 +1,5 @@
 # -------------------------------------------------
-# Servicio de gestión del clickstream.
+# Servicio de gestión del event_logger.
 # Gestiona el ciclo de vida de los eventos de interacción:
 # captura por ítem, congelado y acumulación final.
 # -------------------------------------------------
@@ -8,12 +8,12 @@
 import streamlit as st
 
 # -------------------------------------------------
-# Inicializa las estructuras de clickstream en sesión.
+# Inicializa las estructuras de event_logger en sesión.
 # Crea un buffer para los eventos del ítem activo
 # y un buffer global para los eventos congelados.
 # -------------------------------------------------
 
-def init_clickstream():
+def init_event_logger():
     if "current_item_events" not in st.session_state:
         st.session_state.current_item_events = []
 
@@ -50,9 +50,9 @@ def freeze_item_events(item_id: str):
     for e in st.session_state["current_item_events"]:
         row = {
             "item_id": item_id,
-            "event": e.get("event"),
+            "event": e.get("type"),
             "target": e.get("target"),
-            "timestamp": e.get("timestamp"),
+            "timestamp": e.get("ts"),
             "duration": e.get("duration"),
         }
         frozen_events.append(row)
