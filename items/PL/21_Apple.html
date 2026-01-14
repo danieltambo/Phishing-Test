@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Apple Support – Actualización del caso</title>
+</head>
+
+<body>
+
+<style>
+
+/* ============================= */
+/* CSS GLOBAL – Email Items */
+/* ============================= */
+
+/* Reset básico */
+h1, h2, h3, h4, p {
+  margin-top: 0;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 15px;
+  line-height: 1.5;
+  color: #333;
+  margin: 0;
+  padding: 0;
+}
+
+
+/* Contenedor principal (ficha) */
+.email-container {
+  max-width: 690px;
+  margin: 32px auto;
+  background-color: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+/* Header genérico */
+.email-header {
+  padding: 12px 24px;
+}
+
+.email-header p {
+  margin: 6px 0;
+  line-height: 1.4;
+}
+
+/* Body genérico */
+.email-body {
+  padding-top: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+/* Título genérico (sin look) */
+.body-title {
+  font-weight: bold;
+  margin-top: 6px;
+  margin-bottom: 0;
+}
+
+/* Contenido textual */
+.content p {
+  line-height: 1.55;
+  margin-top: 0;
+  margin-bottom: 6px;
+}
+
+/* CTA wrapper neutro */
+.cta {
+  margin: 0;
+  text-align: center;
+}
+
+/* Botón base (sin color) */
+.btn {
+  display: inline-block;
+  padding: 12px 20px;
+  border-radius: 6px;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+/* Links genéricos */
+a.link {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+/* Footer genérico */
+.email-footer {
+  padding: 16px 25px;
+  font-size: 12px;
+  text-align: center;
+  line-height: 1.15;
+}
+
+.email-footer p {
+  margin: 2px 0;
+}
+/* ============================= */
+/* ===    FIN CSS GLOBAL     === */
+/* ============================= */
+
+/* ============================= */
+/* CSS ESPECÍFICO – APPLE */
+/* ============================= */
+
+/* Contenido centrado (Apple es sobrio y aireado) */
+.brand-apple .content {
+  padding: 24px 32px 40px 32px;
+  color: #1d1d1f;
+}
+
+/* Logo Apple */
+.brand-apple .logo-block {
+  margin-top: 28px;
+  margin-bottom: 12px;
+  text-align: center;
+}
+
+.brand-apple .logo {
+  max-width: 40px;
+  margin: 0 auto;
+}
+
+.brand-apple .logo img {
+  width: 40px;
+  height: auto;
+}
+
+/* Headline Apple */
+.brand-apple .body-title {
+  font-size: 22px;
+  font-weight: 400;
+  text-align: center;
+  margin: 16px 0 28px 0;
+}
+
+/* Links Apple */
+.brand-apple .content a {
+  color: #0070c9;          /* Azul Apple */
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.brand-apple .content a:hover {
+  text-decoration: underline;
+}
+
+/* Caso / enlace destacado */
+.brand-apple .content strong {
+  font-weight: 600;
+}
+
+/* CTA no-botón (Apple real no usa botones aquí) */
+.brand-apple .cta {
+  margin-top: 14px;
+}
+
+/* Neutralizar herencias raras */
+.brand-apple a:visited {
+  color: #0070c9;
+}
+
+/* Footer: mismo fondo que Decathlon (coherencia banco) */
+.brand-apple .email-footer {
+  background-color: #e8eaed;
+  color: #666;
+  border-top: 1px solid #e0e0e0;
+}
+
+/* Header: mismo fondo que Decathlon */
+.brand-apple .email-header {
+  background-color: #e8eaed;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+/* ============================= */
+/* FIN CSS ESPECÍFICO – APPLE */
+/* ============================= */
+
+
+
+/* ============================= */
+/* PARA HACER DEBUG             */
+/* ============================= */
+/* Para ver quien deja huecos */
+/*
+.logo-block,
+.body-title,
+.email-body,
+.cta,
+.content {
+  outline: 1px solid red;
+}
+*/
+
+</style>
+
+
+<!-- ================================= -->
+<!-- EMAIL CONTAINER -->
+<!-- ================================= -->
+<div class="email-container brand-apple">
+
+  <!-- ============================= -->
+  <!-- EMAIL HEADER -->
+  <!-- ============================= -->
+  <div class="email-header">
+
+    <p class="sender" data-track="sender">
+      <strong>De:</strong> Servicio técnico de Apple &lt;support@apple-carecases.com&gt;
+    </p>
+
+    <p class="subject">
+      <strong>Asunto:</strong> Tu caso con Apple Support ha sido actualizado
+    </p>
+
+  </div>
+
+  <!-- Contenido -->
+  <div class="content">
+
+    <!-- ============================= -->
+    <!-- LOGO / IMAGEN PRINCIPAL -->
+    <!-- ============================= -->
+    <div class="logo-block">
+      <img 
+        src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbDpzcGFjZT0icHJlc2VydmUiIHdpZHRoPSI4MTQiIGhlaWdodD0iMTAwMCI+CiAgPHBhdGggZD0iTTc4OC4xIDM0MC45Yy01LjggNC41LTEwOC4yIDYyLjItMTA4LjIgMTkwLjUgMCAxNDguNCAxMzAuMyAyMDAuOSAxMzQuMiAyMDIuMi0uNiAzLjItMjAuNyA3MS45LTY4LjcgMTQxLjktNDIuOCA2MS42LTg3LjUgMTIzLjEtMTU1LjUgMTIzLjFzLTg1LjUtMzkuNS0xNjQtMzkuNWMtNzYuNSAwLTEwMy43IDQwLjgtMTY1LjkgNDAuOHMtMTA1LjYtNTctMTU1LjUtMTI3QzQ2LjcgNzkwLjcgMCA2NjMgMCA1NDEuOGMwLTE5NC40IDEyNi40LTI5Ny41IDI1MC44LTI5Ny41IDY2LjEgMCAxMjEuMiA0My40IDE2Mi43IDQzLjQgMzkuNSAwIDEwMS4xLTQ2IDE3Ni4zLTQ2IDI4LjUgMCAxMzAuOSAyLjYgMTk4LjMgOTkuMnptLTIzNC0xODEuNWMzMS4xLTM2LjkgNTMuMS04OC4xIDUzLjEtMTM5LjMgMC03LjEtLjYtMTQuMy0xLjktMjAuMS01MC42IDEuOS0xMTAuOCAzMy43LTE0Ny4xIDc1LjgtMjguNSAzMi40LTU1LjEgODMuNi01NS4xIDEzNS41IDAgNy44IDEuMyAxNS42IDEuOSAxOC4xIDMuMi42IDguNCAxLjMgMTMuNiAxLjMgNDUuNCAwIDEwMi41LTMwLjQgMTM1LjUtNzEuM3oiLz4KPC9zdmc+"
+        alt="Apple" 
+        class="logo"
+        data-track="logo"/>
+    </div>
+
+    <!-- Headline -->
+    <h1 class="body-title"> Gracias por ponerte en contacto con nosotros.  </h1>
+ 
+     <p>Hola,</p>
+
+    <p> Si necesitas volver a abrir este caso, haz clic en el enlace que encontrarás a continuación. </p>
+
+    <p> Caso: <a href="https://apple-carecases.com/?id=100292133221"  data-track="case-link" onclick="return false;" >100292133221</a>  </p>
+
+    <p> Según la información que nos has facilitado, creemos que el siguiente contenido puede resultarte útil: </p>
+
+    <p>
+      <a href="https://apple.com/myaccount"  data-track="help-link" onclick="return false;">
+        Si has olvidado la contraseña de tu Apple ID
+      </a>
+    </p>
+
+    <p>
+      <br>
+      Estamos aquí para ayudarte.  
+      En <a href="https://apple.com/support" data-track="apple-support-link" onclick="return false;"> Apple Support</a> puedes obtener más información
+      sobre tu producto, descubrir actualizaciones de software y compartir soluciones con otros usuarios.
+    </p>
+
+    <p style="margin-top:24px;">
+      Gracias,<br>
+      <strong> Equipo de soporte de Apple </strong>
+    </p>
+
+  </div>
+
+  
+  
+  
+  
+  <!-- ============================= -->
+  <!-- EMAIL FOOTER -->
+  <!-- ============================= -->
+  <div class="email-footer">
+    © 2026 Apple Inc. Todos los derechos reservados.<br>
+    Este mensaje se ha generado automáticamente. Por favor, no respondas a este correo. 
+  </div>
+
+</div>
+
+</body>
+</html>
+

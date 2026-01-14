@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Compartir fichero - Departamento Financiero </title>
+</head>
+
+<body>
+
+<style>
+
+/* ============================= */
+/* CSS GLOBAL – Email Items */
+/* ============================= */
+
+/* Reset básico */
+h1, h2, h3, h4, p {
+  margin-top: 0;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 15px;
+  line-height: 1.5;
+  color: #333;
+  margin: 0;
+  padding: 0;
+}
+
+/* Contenedor principal (ficha) */
+.email-container {
+  max-width: 690px;
+  margin: 32px auto;
+  background-color: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  border: 1px solid #1a73e8;
+}
+
+/* Header genérico */
+.email-header {
+  padding: 12px 24px;
+}
+
+.email-header p {
+  margin: 6px 0;
+  line-height: 1.4;
+}
+
+/* Body genérico */
+.email-body {
+  padding-top: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+/* Título genérico (sin look) */
+.body-title {
+  font-weight: bold;
+  margin-top: 6px;
+  margin-bottom: 0;
+}
+
+/* Contenido textual */
+.content p {
+  line-height: 1.55;
+  margin-top: 0;
+  margin-bottom: 6px;
+}
+
+/* CTA wrapper neutro */
+.cta {
+  margin: 0;
+  text-align: center;
+}
+
+/* Botón base (sin color) */
+.btn {
+  display: inline-block;
+  padding: 12px 20px;
+  border-radius: 6px;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+/* Links genéricos */
+a.link {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+/* Footer genérico */
+.email-footer {
+  padding: 16px 25px;
+  font-size: 12px;
+  text-align: center;
+  line-height: 1.15;
+}
+
+.email-footer p {
+  margin: 2px 0;
+}
+/* ============================= */
+/* ===    FIN CSS GLOBAL     === */
+/* ============================= */
+
+/* ============================= */
+/* CSS ESPECÍFICO – Documento compartido */
+/* ============================= */
+
+.file-card {
+  border: 1px solid #dadce0;
+  border-radius: 6px;
+  padding: 14px 16px;
+  margin: 16px 0;
+  background-color: #fafafa;
+}
+
+.file-title a {
+  color: #1a73e8;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.file-title a:hover {
+  text-decoration: underline;
+}
+
+.file-meta {
+  font-size: 13px;
+  color: #666;
+  margin-top: 4px;
+}
+
+/* Bloque de nota / urgencia */
+.note {
+  border-left: 4px solid #1a73e8;
+  padding-left: 12px;
+  margin: 14px 0;
+  color: #333;
+}
+
+/* ============================= */
+/* CSS ESPECÍFICO – ARCHIVO COMPARTIDO */
+/* ============================= */
+
+/* Header */
+.email-container .email-header {
+  background-color: #e8eaed;          /* mismo gris Decathlon */
+  border-bottom: 1px solid #e0e0e0;
+}
+
+/* Footer */
+.email-container .email-footer {
+  background-color: #e8eaed;          /* mismo gris Decathlon */
+  color: #666;
+  border-top: 1px solid #e0e0e0;
+}
+
+.email-container .email-footer a {
+  color: #666;
+  text-decoration: underline;
+}
+
+
+
+/* ============================= */
+/* PARA HACER DEBUG             */
+/* ============================= */
+/* Para ver quien deja huecos */
+/*
+.logo-block,
+.body-title,
+.email-body,
+.cta,
+.content {
+  outline: 1px solid red;
+}
+*/
+
+
+</style>
+
+
+
+
+<!-- ================================= -->
+<!-- EMAIL CONTAINER -->
+<!-- ================================= -->
+<div class="email-container">
+
+  <!-- BODY -->
+  <div class="email-body content">
+    <br>
+    <p>
+      <strong>departamento.financiero@empresa.com</strong>
+      ha compartido un archivo contigo:
+    </p>
+
+ 
+
+    <!-- BLOQUE DE ARCHIVO -->
+    <div class="file-card">
+      <div class="file-title">
+        <a
+          href="https://docs.empresa.com/redirect?target=aHR0cHM6Ly9zZWN1cmUtZmlsZS1yZXZpZXcuZXhhbXBsZS9sb2dpbg=="
+          data-track="cta"
+          onclick="return false;"
+        >
+          Board_Review_Draft_Confidential.docx
+        </a>
+      </div>
+
+      <div class="file-meta">
+        218 KB · Actualizado hace 1 día
+      </div>
+    </div>
+
+    <!-- NOTA -->
+    <div class="note">
+      Necesito tu revisión rápida de un borrador confidencial en el que he estado
+      trabajando con el equipo directivo. Por favor, no lo compartas aún.
+      <br><br>
+      Es urgente, ya que lo necesitamos antes de la reunión del comité de mañana.
+    </div>
+
+    <br>
+
+    <p>
+      Gracias por tu colaboración.<br>
+      <strong>Departamento Financiero</strong>
+    </p>
+    <br>
+
+  </div>
+
+  <!-- FOOTER -->
+
+</div>
+
+</body>
+</html>
+

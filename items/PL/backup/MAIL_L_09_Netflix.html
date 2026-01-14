@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Netflix </title>
+</head>
+
+<body>
+
+<style>
+
+/* ============================= */
+/* CSS GLOBAL – Email Items */
+/* ============================= */
+
+/* Reset básico */
+h1, h2, h3, h4, p {
+  margin-top: 0;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 15px;
+  line-height: 1.5;
+  color: #333;
+  margin: 0;
+  padding: 0;
+}
+
+/* Contenedor principal (ficha) */
+.email-container {
+  max-width: 690px;
+  margin: 32px auto;
+  background-color: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+/* Header genérico */
+.email-header {
+  padding: 12px 24px;
+}
+
+.email-header p {
+  margin: 6px 0;
+  line-height: 1.4;
+}
+
+/* Body genérico */
+.email-body {
+  padding-top: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+/* Título genérico (sin look) */
+.body-title {
+  font-weight: bold;
+  margin-top: 6px;
+  margin-bottom: 0;
+}
+
+/* Contenido textual */
+.content p {
+  line-height: 1.55;
+  margin-top: 0;
+  margin-bottom: 6px;
+}
+
+/* CTA wrapper neutro */
+.cta {
+  margin: 0;
+  text-align: center;
+}
+
+/* Botón base (sin color) */
+.btn {
+  display: inline-block;
+  padding: 12px 20px;
+  border-radius: 6px;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+/* Links genéricos */
+a.link {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+/* Footer genérico */
+.email-footer {
+  padding: 16px 25px;
+  font-size: 12px;
+  text-align: center;
+  line-height: 1.15;
+}
+
+.email-footer p {
+  margin: 2px 0;
+}
+/* ============================= */
+/* ===    FIN CSS GLOBAL     === */
+/* ============================= */
+
+/* ============================= */
+/* CSS ESPECÍFICO – NETFLIX */
+/* ============================= */
+
+/* Contenido centrado */
+.brand-netflix .content {
+  text-align: center;
+  padding: 24px 32px 36px 32px;
+}
+
+/* Logo Netflix */
+.brand-netflix .logo-block {
+  margin-top: 20px;
+  margin-bottom: 12px;
+}
+
+.brand-netflix .logo {
+  max-width: 180px;
+  margin: 0 auto;
+}
+
+/* CTA – patrón Decathlon, skin Netflix */
+.brand-netflix .cta {
+  margin: 18px 0 14px 0;
+}
+
+.brand-netflix .btn-netflix {
+  background-color: #e50914; /* Rojo Netflix */
+  color: #ffffff !important;
+  font-size: 16px;
+  font-weight: 700 !important;   /* ← negrita */
+  padding: 12px 26px;
+  border-radius: 6px;
+}
+
+
+.brand-netflix .btn-netflix:hover {
+  background-color: #b20710;
+}
+
+/* Links secundarios */
+.brand-netflix .content a {
+  color: #0071eb; /* Azul Netflix para links */
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.brand-netflix .content a:hover {
+  text-decoration: underline;
+}
+
+/* Header y footer coherentes con el banco */
+.brand-netflix .email-header {
+  background-color: #e8eaed;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.brand-netflix .email-footer {
+  background-color: #e8eaed;
+  color: #666;
+  border-top: 1px solid #e0e0e0;
+}
+
+.brand-netflix .small-text {
+  font-size: 13px;
+  color: #666;
+}
+
+
+/* Neutralizar herencias raras */
+.brand-netflix a.btn,
+.brand-netflix a.btn:visited,
+.brand-netflix a.btn:hover,
+.brand-netflix a.btn:active {
+  color: #ffffff !important;
+  text-decoration: none !important;
+}
+
+
+/* ============================= */
+/* FIN CSS ESPECÍFICO – NETFLIX */
+/* ============================= */
+
+
+
+/* ============================= */
+/* PARA HACER DEBUG             */
+/* ============================= */
+/* Para ver quien deja huecos */
+/*
+.logo-block,
+.body-title,
+.email-body,
+.cta,
+.content {
+  outline: 1px solid red;
+}
+*/
+
+
+</style>
+
+
+
+<!-- ================================= -->
+<!-- EMAIL CONTAINER -->
+<!-- ================================= -->
+<div class="email-container brand-netflix">
+
+  <!-- ============================= -->
+  <!-- EMAIL HEADER -->
+  <!-- ============================= -->
+  <div class="email-header">
+
+    <p class="sender" data-track="sender"> 
+      <strong>De:</strong> Netflix &lt;support@netflix-secure.com&gt;
+    </p>
+
+    <p class="subject">
+      <strong>Asunto:</strong> Restablece tu contraseña de Netflix
+    </p>
+
+  </div>
+
+  <!-- Contenido -->
+  <div class="content">
+
+    <!-- ============================= -->
+    <!-- LOGO / IMAGEN PRINCIPAL -->
+    <!-- ============================= -->
+    <div class="logo-block">
+      <img 
+        src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAA8AAAAEECAMAAADQ7q0iAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAADAFBMVEUAAADYHibYHib/AADYHifYHyfYHyfaHibYHybYHyXVFSvZHibZHybXHybYHyb/AADXHybYHybXGyjZHybZHibjHBzYHybXICbXICW/AEDYHybZHybYHyfYHybfICDYICbYHyfZGibYHybYICXYHybYHyfYISfYHifaICXYHybXHybYHybYHyXYHybZHybYHybYHybZHybWHyTRFy7YHybXHybYHifYHybYHybYHybYJyfXHyXYHyb/AADXHyTXHiXYHybWHiXXHybYHyfYHybYHyfZHibXHybVHiTbHSTYHSfMGhrYHybXHybZHybXHybZICbZHybbJCTZHibZHybYHifYICXYHybYHybcIyPYHibYICbZHybYHyfZISbXICbXICbWHCnYHybYHybYHyfYHyfYHifYHiXYHybZHSbYHybWHynaHyXYICXYHybYHybXHybYHybaHibYICfXHybZHSbfICDYHybXICXYICfYICbYHybTISHbHyTYICfYHiXbGyTYHybXHybSHi3YHyfYHybYHyXYHifZHibXICbVKyvYHybYHyfZICbYHybWICTWISnZHybZHybMMzPYHyfZHybZHibZICbZHibcIyPXHibXISTYHybVHCPZICbZHibYHyXYHybXICjZHCbYHybXHybZICbbJCTZHybXHiTYICfVHCvYHybYHybYHybYHifXHibYHyXYHybYHSfYHifYISfYICbYICXdIiLYHybZICbYHybZICbYHyXYHybXHijWHSnZHibYHifYHyfaISXYICfXHCjYHyfYICXYHyXXICjXICTXICbVICvYHyfYHybXIijZHybYHybZHybZHybYHybYHSfYHifXHibYICbXHybXHybXHyXZHybYHyfYHyfYHiXXHyXXHiXVIiLYICfYHiXXICjZHybYHybbHiTZHibZICbXHyjYHybYHybbJCTYHyXYHybXICXYICbaICXYHybYHyXYHyfaHyXYHiXZISbXHyXYHybYHyXYHyb///8guybqAAAA/nRSTlMAsMkBuYNjRKOdDH5ktN4CjfkT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"
+        alt="Netflix" 
+        class="logo"
+        data-track="logo"/>
+    </div>
+
+    <!-- ============================= -->
+    <!-- EMAIL BODY -->
+    <!-- ============================= -->
+  
+    <p>Hola,</p>
+
+    <p>
+      Hemos recibido una solicitud para restablecer tu contraseña de Netflix. <br>
+      Si quieres continuar, haz clic en el siguiente botón.
+    </p>
+  
+    <!-- CTA PRINCIPAL -->
+    <div class="cta">
+      <a
+        class="link btn btn-netflix"
+        href="https://netflix.com/reset"
+        data-track="cta"
+        onclick="return false;"
+      >
+        Restablecer contraseña
+      </a>
+    </div>  
+
+    <p class="small-text">
+      Si tú no solicitaste este cambio, puedes
+      <a href="https://netflix.com/mi-cuenta" class="link" data-track="secondary-link" onclick="return false;"> hacer clic aquí </a>
+      para revisar tu cuenta y actualizar tu contraseña
+      <strong>de inmediato</strong> para evitar accesos no autorizados.
+      <br>
+    </p>
+
+    <p class="small-text">
+      Gracias por usar Netflix.<br>
+      <strong>El equipo de Netflix </strong>
+    </p>
+
+  </div>
+
+    
+  <!-- ============================= -->
+  <!-- EMAIL FOOTER -->
+  <!-- ============================= -->
+    <div class="email-footer">
+    © 2026 Netflix, Inc. Todos los derechos reservados.<br>
+    Este mensaje se ha generado automáticamente. Por favor, no respondas a este correo.
+  </div>
+  
+</div>
+
+</body>
+</html>
+

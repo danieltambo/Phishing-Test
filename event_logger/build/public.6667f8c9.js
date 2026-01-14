@@ -28888,17 +28888,35 @@ const $bc00a59541d06196$var$App = ({ args: args })=>{
         if (!containerRef.current) return;
         const detach = (0, $40f56fc4fcc5d81e$export$6aa0a6620af7b428)(containerRef.current, (event)=>{
             (0, $921729aed3f2958f$export$e733d124b3a21d3f).setComponentValue(event);
-        // 🔑 Reajusta altura tras cada evento
-        // Streamlit.setFrameHeight();
         });
         return detach;
     }, [
         html
     ]);
+    // Bug de la altura y botones. Calcula altura total
+    const updateHeight = ()=>{
+        const height = document.body.scrollHeight;
+        (0, $921729aed3f2958f$export$e733d124b3a21d3f).setFrameHeight(height);
+    };
     // Señala a Streamlit que el componente está listo y ajusta el alto del iframe
     (0, $d4J5n.useEffect)(()=>{
         (0, $921729aed3f2958f$export$e733d124b3a21d3f).setComponentReady();
-        (0, $921729aed3f2958f$export$e733d124b3a21d3f).setFrameHeight();
+        //Streamlit.setFrameHeight();
+        // *****************************
+        // Bug de la altura
+        // Primer ajuste (post-render inmediato)
+        updateHeight();
+        // Ajustes diferidos para imágenes / layout async
+        const t1 = setTimeout(updateHeight, 100);
+        const t2 = setTimeout(updateHeight, 300);
+        const t3 = setTimeout(updateHeight, 600);
+        return ()=>{
+            clearTimeout(t1);
+            clearTimeout(t2);
+            clearTimeout(t3);
+        };
+    // Fin bug de la altura
+    // ********************************
     }, [
         html
     ]);

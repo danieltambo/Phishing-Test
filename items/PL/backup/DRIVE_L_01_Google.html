@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Laura Martínez ha compartido un documento contigo</title>
+</head>
+
+<body>
+    
+<style>
+
+/* ============================= */
+/* CSS GLOBAL – Google Docs Share */
+/* ============================= */
+
+body {
+  font-family: Roboto, Arial, Helvetica, sans-serif;
+  background-color: #ffffff; /* #f1f3f4;*/
+  margin: 0;
+  padding: 0;
+  color: #202124;
+}
+
+.email-container {
+  max-width: 600px;
+  margin: 40px auto;
+  background-color: #ffffff;
+  border-radius: 8px;
+  padding: 24px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  border: 1px solid #1a73e8;
+
+}
+
+/* Header */
+.email-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #34a853;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 18px;
+  margin-right: 12px;
+}
+
+.email-title {
+  font-size: 18px;
+  font-weight: 500;
+  margin: 0;
+}
+
+/* Body text */
+.email-text {
+  font-size: 14px;
+  line-height: 1.6;
+  margin: 10px 0 20px 0;
+}
+
+/* Document card */
+.doc-card {
+  border: 1px solid #dadce0;
+  border-radius: 8px;
+  padding: 16px;
+  margin-bottom: 24px;
+}
+
+.doc-title {
+  font-size: 15px;
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+
+.doc-preview {
+  height: 120px;
+  border: 1px solid #dadce0;
+  border-radius: 6px;
+  background-color: #f8f9fa;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+.doc-preview-icon {
+  width: 42px;
+  height: 42px;
+  background-color: #1a73e8;
+  border-radius: 4px;
+  position: relative;
+}
+
+.doc-preview-icon::after {
+  content: "";
+  position: absolute;
+  top: 8px;
+  left: 10px;
+  width: 22px;
+  height: 26px;
+  background-color: #ffffff;
+  border-radius: 2px;
+}
+
+.doc-meta {
+  font-size: 13px;
+  color: #5f6368;
+}
+
+.doc-filetype {
+  font-size: 12px;
+  color: #5f6368;
+  margin-top: 6px;
+  text-align: center;
+}
+
+/* CTA */
+.btn-open {
+  display: inline-block;
+  background-color: #1a73e8;
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 10px 28px;
+  border-radius: 4px;
+}
+
+/* Footer */
+.email-footer {
+  margin-top: 30px;
+  font-size: 12px;
+  color: #5f6368;
+  text-align: center;
+  line-height: 1.5;
+}
+
+.email-footer a {
+  color: #1a73e8;
+  text-decoration: none;
+}
+
+
+</style>
+
+
+<!-- ================================= -->
+<!-- eMail CONTAINER -->
+<!-- ================================= -->
+ <div class="email-container">
+
+  <!-- Header -->
+  <div class="email-header">
+    <div class="avatar">L</div>
+    <h1 class="email-title">
+      Laura Martínez ha compartido un documento contigo
+    </h1>
+  </div>
+
+  <!-- Intro -->
+  <p class="email-text">
+    <strong>Laura Martínez</strong>
+    &lt;<strong>laura.martinez.g@gmail.com</strong>&gt;
+    te ha invitado a <strong>editar</strong> el siguiente documento:
+  </p>
+
+  <p class="email-text">
+    Hola, aquí tienes el documento que solicitaste.
+    Avísame si necesitas algo más.
+  </p>
+
+  <!-- Document card -->
+  <a
+  href="https://docs.google.com"
+  data-track="cta"
+  onclick="return false;"
+  style="text-decoration:none; color:inherit;"
+  >
+    <div class="doc-card">
+      <div class="doc-title">
+        Presupuesto general 2025
+      </div>
+
+      <div class="doc-preview">
+        <div style="text-align:center">
+          <svg
+            width="45"
+            height="45"
+            viewBox="0 0 24 24"
+            aria-hidden="true"
+          >
+            <path
+              fill="#1a73e8"
+              d="M6 2h7l5 5v13a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2z"
+            />
+            <path
+              fill="#ffffff"
+              d="M8 11h8v2H8zm0 4h8v2H8zm0-8h5v2H8z"
+            />
+          </svg>
+          <div class="doc-filetype">Documento de Google</div>
+        </div>
+      </div>
+
+  </a>  
+
+    <div class="doc-meta">
+      Es propiedad de Laura Martínez<br>
+      Última edición: hace 1 hora
+    </div>
+  </div>
+
+  <!-- CTA -->
+   <a
+      href="https://docs.google.com"
+      class="btn-open"
+      data-track="cta"
+      onclick="return false;"
+    >
+      Abrir
+    </a>
+
+
+    <!-- Footer -->
+  <div class="email-footer">
+    Si no deseas recibir archivos de esta persona, puedes
+    <a href="https://drive.google.com/settings" onclick="return false;">bloquearla en Drive</a>.
+    <br><br>
+    © 2026 Google LLC. Todos los derechos reservados.
+  </div>
+
+</div>
+
+</body>
+</html>

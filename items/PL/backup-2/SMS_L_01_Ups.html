@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SMS</title>
+</head>
+
+<body>
+    
+<style>
+
+/* ============================= */
+/* CSS GLOBAL – SMS Items */
+/* ============================= */
+
+  body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+  background-color:#ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* height: 100vh; */
+  min-height: 100vh;   /* 👈 CLAVE */
+  height: auto;        /* 👈 CLAVE */
+  margin: 0;
+}
+
+/* Teléfono */
+.sms-phone {
+  background-color: #2c2c2c;
+  border-radius: 32px;
+  width: 320px;
+  height: 430px; /* 👈 CLAVE */
+  padding: 14px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.35);
+}
+
+/* Pantalla */
+.sms-screen {
+  background-color: #f8f8f8;
+  height: 100%;
+  border-radius: 22px;
+  padding: 10px;
+  box-sizing: border-box;
+  overflow-y: auto;   /* 👈 CLAVE */
+}
+
+/* Header (número / remitente corto) */
+.sms-header {
+  text-align: center;
+  font-size: 14px;
+  font-weight: 500;
+  color: #555;
+  margin-bottom: 4px;
+}
+
+/* Hora */
+.sms-time {
+  font-size: 12px;
+  color: #777;
+  margin: 0 0 10px 6px;
+}
+
+/* Burbuja SMS */
+.sms-message {
+  background-color: #e5e5ea;
+  border-radius: 14px;
+  padding: 12px 14px;
+  max-width: 85%;
+  font-size: 14px;
+  line-height: 1.45;
+  color: #000;
+  margin: 0 auto;      /* 👈 CLAVE: centra la burbuja */
+}
+
+.ios-home-indicator {
+  width: 40px;
+  height: 40px;
+  border: 2px solid #000;
+  /*background-color: #000;*/
+  border-radius: 50%;
+  margin: 12px auto 6px auto;
+  opacity: 0.8;
+}
+
+
+
+/* ============================= */
+/* CSS Especifico - UPS
+/* ============================= */
+
+.sms-message a {
+  color: #1a73e8;
+  text-decoration: none;
+  word-break: break-all;
+}
+
+.sms-message a:hover {
+  text-decoration: underline;
+}
+
+</style>
+
+
+<!-- ================================= -->
+<!-- SMS CONTAINER -->
+<!-- ================================= -->
+
+<div class="sms-phone">
+  <div class="sms-screen">
+
+    <div class="sms-header">
+      69877
+    </div>
+
+    <div class="sms-time">
+      9:52
+    </div>
+
+    <div class="sms-message">
+      <!-- CONTENIDO DEL SMS AQUÍ -->
+       UPS: 1ZA826G7680082380 de GOOGLE STORE.  
+        Entrega hoy entre las 10:45 y las 13:45. 
+        <br> <br>
+
+        Dejar en casa de un vecino:  
+        <a href="https://ups.com/su/yxU8aG76cUmN" data-track="sms-link" onclick="return false;"   rel="noopener noreferrer">ups.com/su/yxU8aG76cUmN</a>
+        <br> <br>
+
+        Entregar otro día:  
+        <a href="https://ups.com/su/mxN7ybRnrbMb" data-track="sms-link-2" onclick="return false;" rel="noopener noreferrer">ups.com/su/mxN7ybRnrbMb</a>
+        <br> <br>
+
+        Responde STOP para cancelar los mensajes.
+        <br>
+    </div>
+    <br>
+    <div class="ios-home-indicator"></div>
+
+  </div>
+</div>
+
+</body>
+</html>

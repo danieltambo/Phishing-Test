@@ -50,8 +50,8 @@ def render_items():
         html=full_html,
     )
 
-    # Es una prueba para ver si llega
-    st.write("EVENT RAW:", event)
+    # Es una prueba para ver si se visualizan los eventos
+    # st.write("EVENT RAW:", event)
 
     # Si no hay evento, no se ejecuta ninguna lógica
     if event is None:

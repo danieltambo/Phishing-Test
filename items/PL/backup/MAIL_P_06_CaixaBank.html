@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>La Caixa </title>
+</head>
+
+<body>
+
+<style>
+
+/* ============================= */
+/* CSS GLOBAL – Email Items */
+/* ============================= */
+
+/* Reset básico */
+h1, h2, h3, h4, p {
+  margin-top: 0;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 15px;
+  line-height: 1.5;
+  color: #333;
+  margin: 0;
+  padding: 0;
+}
+
+/* Contenedor principal (ficha) */
+.email-container {
+  max-width: 690px;
+  margin: 32px auto;
+  background-color: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+/* Header genérico */
+.email-header {
+  padding: 12px 24px;
+}
+
+.email-header p {
+  margin: 6px 0;
+  line-height: 1.4;
+}
+
+/* Body genérico */
+.email-body {
+  padding-top: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+/* Título genérico (sin look) */
+.body-title {
+  font-weight: bold;
+  margin-top: 6px;
+  margin-bottom: 0;
+}
+
+/* Contenido textual */
+.content p {
+  line-height: 1.55;
+  margin-top: 0;
+  margin-bottom: 6px;
+}
+
+/* CTA wrapper neutro */
+.cta {
+  margin: 0;
+  text-align: center;
+}
+
+/* Botón base (sin color) */
+.btn {
+  display: inline-block;
+  padding: 12px 20px;
+  border-radius: 6px;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+/* Links genéricos */
+a.link {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+/* Footer genérico */
+.email-footer {
+  padding: 16px 25px;
+  font-size: 12px;
+  text-align: center;
+  line-height: 1.15;
+}
+
+.email-footer p {
+  margin: 2px 0;
+}
+/* ============================= */
+/* ===    FIN CSS GLOBAL     === */
+/* ============================= */
+/* ============================= */
+/* CSS ESPECÍFICO – LA CAIXA */
+/* ============================= */
+
+/* Header */
+.brand-caixa .email-header {
+  background-color: #f1f3f4;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+/* Logo */
+.brand-caixa .logo-block {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 110px;
+}
+
+.brand-caixa .logo {
+  max-width: 210px;
+  height: auto;
+}
+
+/* Título */
+.brand-caixa .body-title {
+  text-align: center;
+  font-size: 21px;
+  margin-bottom: 10px;
+}
+
+/* CTA */
+.brand-caixa .cta {
+  margin-top: 16px;
+  margin-bottom: 14px;
+  text-align: center;
+}
+
+.brand-caixa .btn-caixa {
+  background-color: #007eae; /* Azul Caixa */
+  color: #ffffff !important;
+  font-size: 15px;
+  padding: 11px 22px;
+}
+
+/* Texto secundario */
+.brand-caixa .profile-text {
+  font-size: 13px;
+  color: #555;
+  text-align: center;
+  margin-top: 10px;
+}
+
+/* Footer */
+.brand-caixa .email-footer {
+  background-color: #f1f3f4;
+  color: #666;
+  border-top: 1px solid #e0e0e0;
+}
+
+/* Neutralizar subrayados */
+.brand-caixa a.btn,
+.brand-caixa a.btn:visited,
+.brand-caixa a.btn:hover,
+.brand-caixa a.btn:active {
+  text-decoration: none !important;
+}
+
+/* ============================= */
+/* FIN CSS ESPECÍFICO – LA CAIXA */
+/* ============================= */
+
+
+/* ============================= */
+/* PARA HACER DEBUG             */
+/* ============================= */
+/* Para ver quien deja huecos */
+/*
+.logo-block,
+.body-title,
+.email-body,
+.cta,
+.content {
+  outline: 1px solid red;
+}
+*/
+
+
+</style>
+
+
+
+<!-- ================================= -->
+<!-- EMAIL CONTAINER -->
+<!-- ================================= -->
+<div class="email-container brand-caixa">
+
+  <!-- ============================= -->
+  <!-- EMAIL HEADER -->
+  <!-- ============================= -->
+  <div class="email-header">
+    
+    <p data-track="sender">
+      <strong>De:</strong> 
+       <span  class="sender-hover"  data-track="sender_hover"  title="seguridad@caixabank.es" >
+          CaixaBank
+       </span> 
+    </p>
+    <p>
+      <strong>Asunto:</strong> Aviso de seguridad importante
+    </p>
+  </div>
+
+  <!-- ============================= -->
+  <!-- LOGO -->
+  <!-- ============================= -->
+    <div class="logo-block">
+    <img 
+      src="data:image/png;base64,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"
+      alt="CaixaBank" 
+      class="logo"
+      data-track="logo"/>
+  </div>
+
+
+  <!-- ============================= -->
+  <!-- BODY -->
+  <!-- ============================= -->
+  <div class="email-body content">
+
+    <h2 class="body-title">
+      Aviso de seguridad de tu cuenta
+    </h2>
+
+    <p>
+      Hemos detectado una actividad inusual en tu cuenta de CaixaBank que podría
+      comprometer la seguridad de tu información.
+    </p>
+
+    <p>
+      Por motivos de seguridad, es necesario que revises y confirmes tus datos
+      de acceso lo antes posible para evitar bloqueos temporales.
+    </p>
+
+    <!-- CTA -->
+    <div class="cta">
+      <a
+        class="link btn btn-caixa"
+        href="https://www.caixabankk.es/seguridad/verificacion"
+        data-track="cta"
+        onclick="return false;"
+        title="https://www.caixabankk.es/seguridad/verificacion"
+      >
+        Verificar mi cuenta
+      </a>
+    </div>
+
+    <p class="profile-text">
+      Si no realizas esta verificación en las próximas 24 horas, el acceso a tu
+      cuenta podría verse limitado.
+    </p>
+
+    <p>
+      Atentamente,<br>
+      Equipo de Seguridad de CaixaBank
+    </p>
+
+  </div>
+
+  <!-- ============================= -->
+  <!-- FOOTER -->
+  <!-- ============================= -->
+  <div class="email-footer">
+    <p>© 2026 CaixaBank, S.A. Todos los derechos reservados.</p>
+    <p>Este mensaje se ha generado automáticamente. Por favor, no respondas a este correo.</p>
+  </div>
+
+</div>
+
+
+
+
+</body>
+</html>
+

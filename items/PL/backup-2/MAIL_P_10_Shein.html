@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Shein </title>
+</head>
+
+<body>
+
+<style>
+
+/* ============================= */
+/* CSS GLOBAL – Email Items */
+/* ============================= */
+
+/* Reset básico */
+h1, h2, h3, h4, p {
+  margin-top: 0;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 15px;
+  line-height: 1.5;
+  color: #333;
+  margin: 0;
+  padding: 0;
+}
+
+/* Contenedor principal (ficha) */
+.email-container {
+  max-width: 690px;
+  margin: 32px auto;
+  background-color: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+/* Header genérico */
+.email-header {
+  padding: 12px 24px;
+}
+
+.email-header p {
+  margin: 6px 0;
+  line-height: 1.4;
+}
+
+/* Body genérico */
+.email-body {
+  padding-top: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+/* Título genérico (sin look) */
+.body-title {
+  font-weight: bold;
+  margin-top: 6px;
+  margin-bottom: 0;
+}
+
+/* Contenido textual */
+.content p {
+  line-height: 1.55;
+  margin-top: 0;
+  margin-bottom: 6px;
+}
+
+/* CTA wrapper neutro */
+.cta {
+  margin: 0;
+  text-align: center;
+}
+
+/* Botón base (sin color) */
+.btn {
+  display: inline-block;
+  padding: 12px 20px;
+  border-radius: 6px;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+/* Links genéricos */
+a.link {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+/* Footer genérico */
+.email-footer {
+  padding: 16px 25px;
+  font-size: 12px;
+  text-align: center;
+  line-height: 1.15;
+}
+
+.email-footer p {
+  margin: 2px 0;
+}
+/* ============================= */
+/* ===    FIN CSS GLOBAL     === */
+/* ============================= */
+/* ============================= */
+/* CSS ESPECÍFICO – SHEIN */
+/* ============================= */
+
+.brand-shein {
+  background-color: #ffffff;
+}
+
+/* Header */
+.brand-shein .email-header {
+  background-color: #f7f7f7;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+
+/* Contenedor del logo */
+.logo-block {
+  text-align: center;   /* centra horizontalmente */
+  margin: 0px 0px 0px;  /* reduce aire vertical */
+
+}
+/* CONTENEDOR DEL LOGO */
+.brand-shein .logo-block {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 0;        /* ↓ reduce espacio vertical */
+  margin: 0;
+}
+
+
+
+/* Logo */
+.logo-block .logo {
+  max-width: 90px;     /* 🔴 aquí está la clave */
+  width: 100%;
+  height: auto;
+  display: inline-block;
+  margin-top: 0px;
+  margin-bottom: 0px;
+ }
+
+.brand-shein .logo {
+  max-width: 80px;
+  margin-bottom: 0;
+}
+
+
+/* Hero */
+.brand-shein .brand-hero {
+  background: linear-gradient(180deg, #000000 0%, #1a1a1a 100%);
+  color: #ffffff;
+  text-align: center;
+  padding: 20px 20px 16px;
+}
+
+.brand-shein .brand-name {
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  margin: 0;
+}
+
+.brand-shein .brand-subtitle {
+  font-size: 14px;
+  opacity: 0.85;
+  margin-top: 6px;
+}
+
+/* Body */
+.brand-shein .email-body {
+  padding: 24px 24px 12px 24px;
+}
+
+/* Highlight box */
+.brand-shein .highlight-box {
+  border: 1px solid #ff4f7b;
+  border-radius: 8px;
+  padding: 14px 16px;
+  margin: 18px 0;
+  background-color: #fff7fa;
+}
+
+.brand-shein .highlight-title {
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.brand-shein .highlight-note {
+  font-size: 13px;
+  color: #555;
+}
+
+/* CTA */
+.brand-shein .cta {
+  text-align: center;
+  margin: 22px 0;
+}
+
+.brand-shein .btn-shein {
+  background-color: #ff2f6d;
+  color: #ffffff;
+  border: none;
+  border-radius: 999px;
+  padding: 12px 28px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* Texto auxiliar */
+.brand-shein .fine-text {
+  font-size: 13px;
+  color: #666;
+  text-align: center;
+  margin-bottom: 18px;
+}
+
+/* Sección testimonios */
+.brand-shein .section-title {
+  font-size: 15px;
+  font-weight: 600;
+  margin-top: 10px;
+  margin-bottom: 8px;
+}
+
+/* Testimonios */
+.brand-shein .testimonial {
+  border-left: 3px solid #ff4f7b;
+  padding-left: 12px;
+  margin-bottom: 12px;
+}
+
+.brand-shein .testimonial-name {
+  font-weight: 600;
+  margin-bottom: 2px;
+}
+
+.brand-shein .testimonial-text {
+  font-size: 14px;
+  color: #444;
+  margin-bottom: 2px;
+}
+
+.brand-shein .testimonial-date {
+  font-size: 12px;
+  color: #888;
+}
+
+/* Cierre */
+.brand-shein .closing {
+  margin-top: 16px;
+  font-size: 14px;
+}
+
+/* Footer */
+.brand-shein .email-footer {
+  background-color: #f7f7f7;
+  color: #666;
+  border-top: 1px solid #e5e5e5;
+}
+
+/* ============================= */
+/* FIN CSS ESPECÍFICO – SHEIN */
+/* ============================= */
+
+
+/* ============================= */
+/* PARA HACER DEBUG             */
+/* ============================= */
+/* Para ver quien deja huecos */
+/*
+.logo-block,
+.body-title,
+.email-body,
+.cta,
+.content {
+  outline: 1px solid red;
+}
+*/
+
+</style>
+
+
+<div class="email-container brand-shein">
+
+  <!-- ============================= -->
+  <!-- HEADER -->
+  <!-- ============================= -->
+  <div class="email-header">
+     <p data-track="sender">
+      <strong>De:</strong>
+      <span  class="sender-hover"  data-track="sender_hover"  title="feedback@shein.com" >
+        SHEIN
+      </span> 
+    </p>
+    <p>
+      <strong>Asunto:</strong> Share your feedback & enter to win
+    </p>
+  </div>
+
+  <!-- ============================= -->
+  <!-- HERO / BRAND -->
+  <!-- ============================= -->
+  <div class="logo-block">
+    <img 
+      src="data:image/jpeg;base64,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ERAQEBAQEBAQEBAQcJYg4FrhcHeF2J07WZrO4QlVq203MbiDyOY+9W1zT8ttObaPdCBrKN8Rs8W7eB7ir62i3hux5a3jcMdSWCAg5RgXFzYXzPII5O9dnxwF8jdCPD4jogIOTW3IA3nJHJnT4jrLp6WWSM4AS1pvbjc78KhNqxPdTfJSl+/mUloXQ7w9skgwhuYHEn7FXkyRrUM3I5NZrNarLZZ3nPqAgICAgICAgICAgICAgIOEsTXCzgCORF12JmPDsWms7hiSaIhLS0MAvxAzB53UoyW3tbHIyRO9oT/Dr+tmDYdXPfnxHDJXetDb/Nr2/wDURLC5ps5pB5EK2JiWuL1mNxLrXUhAQZDowYw8DNpwu8c2n2jwUd99K4tq/TLnQ0hkD8O9rcQ7c8x5Ja2tOZcnRMb+XygpHveA0HIgk2yGfFLWiIcy5K1rO5WZ+goS8vIOZva9h96zerbWnmxyskV0kYog0WaAAOAyCrmZnyom02ncuaOCAgICAgICAgICAgICAgICAgICD4WoMSq0ZFJ6TBfmMj5hTi9o8LaZ708Sjnassvk91uVgfWp+tLRHOtrw+yatR26r3A9tiPJIzSRzb/MMrR+h2RhwJx4sjcWFh2KNskyqy8m15ifGmRR0DIr4Ba+/MkqNrTbyryZbZPcyQFFW+oCAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg//Z"
+      alt="Shein" 
+      class="logo"
+      data-track="logo"/>
+  </div>
+
+  <!-- ============================= -->
+  <!-- BODY -->
+  <!-- ============================= -->
+  <div class="email-body content">
+
+    <p>Hola,</p>
+
+    <p>
+      Valoramos tu opinión y nos encantaría conocer tu experiencia con <strong>SHEIN</strong>.
+    </p>
+
+    <div class="highlight-box">
+      <p class="highlight-title">
+        Completa nuestra encuesta y participa para ganar premios exclusivos!
+
+      </p>
+      <p class="highlight-note">
+        La encuesta  se completa en 5 y 7 minutos.
+      </p>
+    </div>
+
+    <!-- CTA -->
+    <div class="cta">
+      <a
+        href="javascript:window.location='https://survey-ss.com/s/confirm?id=92KX3'"
+        class="btn btn-shein"
+        data-track="cta"
+        onclick="return false;"
+      >
+        Empezar encuesta
+      </a>
+    </div>
+
+    <p class="fine-text">
+      La encuesta se cierra el <strong> 29 de abril de 2026 </strong>
+    </p>
+
+    <h1 class="section-title">Lo que dicen otros clientes</h1>
+
+    <div class="testimonial">
+      <p class="testimonial-name">Elizabeth Brown</p>
+      <p class="testimonial-text">
+        ““Encuesta rápida y sencilla. Se agradece que pidan mi opinión!”
+      </p>
+      <p class="testimonial-date">October 14, 2025</p>
+    </div>
+
+  </div>
+
+  <!-- ============================= -->
+  <!-- FOOTER -->
+  <!-- ============================= -->
+  <div class="email-footer">
+    <p>© 2026 SHEIN. All rights reserved.</p>
+    <p>This message was automatically generated. Please do not reply.</p>
+  </div>
+
+</div>
+
+</body>
+</html>
+
+
+
