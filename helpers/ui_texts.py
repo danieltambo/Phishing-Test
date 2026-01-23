@@ -16,7 +16,7 @@ HEADERS = {
         "title": "  ¿Serías capaz de identificar un correo phishing?"
     },
     "ITEMS": {
-        "title": "¿Cómo clasificarías este correo?"
+        "title": "¿Cómo clasificarías este mensaje?"
     },
   
   "CONTEXT": {
