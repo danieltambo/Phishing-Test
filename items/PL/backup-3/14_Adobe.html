@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+</head>
+
+<body>
+
+<style>
+
+/* ============================= */
+/* CSS GLOBAL – Email Items */
+/* ============================= */
+
+/* Reset básico */
+h1, h2, h3, h4, p {
+  margin-top: 0;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 15px;
+  line-height: 1.5;
+  color: #333;
+  margin: 0;
+  padding: 0;
+}
+
+/* Contenedor principal (ficha) */
+.email-container {
+  max-width: 690px;
+  margin: 32px auto;
+  background-color: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+/* Header genérico */
+.email-header {
+  padding: 12px 24px;
+}
+
+.email-header p {
+  margin: 6px 0;
+  line-height: 1.4;
+}
+
+/* Body genérico */
+.email-body {
+  padding-top: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+/* Título genérico (sin look) */
+.body-title {
+  font-weight: bold;
+  margin-top: 6px;
+  margin-bottom: 0;
+}
+
+/* Contenido textual */
+.content p {
+  line-height: 1.55;
+  margin-top: 0;
+  margin-bottom: 6px;
+}
+
+/* CTA wrapper neutro */
+.cta {
+  margin: 0;
+  text-align: center;
+}
+
+/* Botón base (sin color) */
+.btn {
+  display: inline-block;
+  padding: 12px 20px;
+  border-radius: 6px;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+/* Links genéricos */
+a.link {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+/* Footer genérico */
+.email-footer {
+  padding: 16px 25px;
+  font-size: 12px;
+  text-align: center;
+  line-height: 1.15;
+}
+
+.email-footer p {
+  margin: 2px 0;
+}
+/* ============================= */
+/* ===    FIN CSS GLOBAL     === */
+/* ============================= */
+
+
+/* ============================= */
+/* CSS ESPECÍFICO – ADOBE */
+/* ============================= */
+
+/* Header Adobe */
+.email-header {
+  background-color: #ffffff;
+  border-bottom: none;
+}
+
+/* Banner + logo */
+.logo-block {
+  display: flex;
+  flex-direction: column;   /* ⬅️ clave */
+  align-items: flex-start;
+  justify-content: center;
+  padding-left: 24px;
+  gap: 12px;
+  
+  background-color: #000000;   /* negro Adobe */
+  height: 110px; 
+    
+}
+
+.logo {
+  max-width: 100px;            /* logo más contenido que Airbnb */
+  height: auto;
+}
+
+/* Título */
+.body-title {
+  font-size: 24px;
+  font-weight: 700;
+  color: #ffffff;
+  margin-top: 0;
+  margin:0;
+}
+
+/* Texto */
+.content p {
+  text-align: left;
+  font-weight: normal;
+}
+
+.content {
+  text-align: left;
+}
+
+.content a {
+  display: inline;
+  margin: 0;
+  padding: 0;
+}
+
+.email-body,
+.content,
+.content p {
+  text-align: left;
+}
+
+.content p:first-child {
+  text-align: left;
+  font-weight: normal;
+}
+
+/* CTA como link (no botón) */
+.cta a {
+  font-weight: 600;
+  color: #1473e6;              /* azul Adobe */
+  text-decoration: underline;
+}
+
+.profile-text strong {
+  font-weight: 600;
+}
+
+/* Espacio texto ↔ CTA */
+.cta {
+  margin-top: 14px;
+}
+
+/* Texto inferior */
+.profile-text {
+  margin-top: 10px;
+  font-size: 15px;
+  color: #2c2c2c;
+  text-align: left;
+}
+
+.profile-text strong {
+  font-weight: 600;
+}
+
+/* Footer */
+.email-footer {
+  background-color: #f2f2f2;
+  color: #666666;
+  border-top: 1px solid #e0e0e0; /* none*/
+}
+
+.email-footer a {
+  color: #666666;
+  text-decoration: underline;
+}
+
+
+
+/* ============================= */
+/* FIN CSS ESPECÍFICO – ADOBE */
+/* ============================= */
+
+
+/* ============================= */
+/* PARA HACER DEBUG             */
+/* ============================= */
+/* Para ver quien deja huecos */
+/*
+.logo-block,
+.body-title,
+.email-body,
+.cta,
+.content {
+  outline: 1px solid red;
+}
+*/
+
+
+</style>
+
+
+<!-- ================================= -->
+<!-- EMAIL CONTAINER -->
+<!-- ================================= -->
+<div class="email-container brand-decathlon">
+
+  <!-- ============================= -->
+  <!-- EMAIL HEADER -->
+  <!-- ============================= -->
+  <div class="email-header">
+    <p data-track="sender"><strong>De:</strong> Adobe &lt;mensaje@adobe.com&gt;</p>
+    <p><strong>Asunto:</strong> Explora tu cuenta de Adobe</p>
+  </div>
+
+  <!-- ============================= -->
+  <!-- LOGO / IMAGEN PRINCIPAL -->
+  <!-- ============================= -->
+  <div class="logo-block">
+    <img 
+      src="data:image/png;base64,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"
+      alt="Adobe" 
+      class="logo"
+      data-track="logo"/>
+    <h2 class="body-title">Comunicaciones de Adobe</h2>
+
+  </div>
+
+  <!-- ============================= -->
+  <!-- EMAIL BODY -->
+  <!-- ============================= -->
+  <div class="email-body">
+
+    <!-- CONTENIDO PRINCIPAL -->
+    <div class="content">
+        <p>
+          <br>
+          Hola,
+        </p>
+
+        <p>
+          Te enviamos este mensaje para informarte sobre las últimas novedades y
+          funcionalidades disponibles en tu cuenta de Adobe.
+          <br><br>
+          Si deseas obtener más información, puedes visitar nuestro
+           <a href="https://adobe.com/ES/news" title="https://adobe.com/ES/news" data-track="cta" onclick="return false;"> 
+              <strong>sitio web. </strong>
+           </a>
+
+          <br><br>
+        </p>
+
+    </div>
+    
+    <!-- BLOQUE INFERIOR -->
+    <div class="body-bottom">
+    
+
+      <p class="profile-text">
+        Gracias por confiar en nosotros y por tu continuo apoyo. <br>
+        Un saludo cordial <br>
+         <strong>Equipo de Comunicación de Adobe</strong>
+      </p>
+       
+     
+      
+    </div>
+
+  </div>
+
+  <!-- ============================= -->
+  <!-- EMAIL FOOTER -->
+  <!-- ============================= -->
+  <div class="email-footer">
+
+    <p>© 2026 Adobe Systems. Todos los derechos reservados.</p>
+
+    <p>Has recibido este correo porque formas parte de nuestra comunidad de usuarios.</p>
+
+  </div>
+
+</div>
+
+</body>
+</html>
+

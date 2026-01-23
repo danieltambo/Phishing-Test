@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+</head>
+
+<body>
+
+<style>
+
+/* ============================= */
+/* CSS GLOBAL – Email Items */
+/* ============================= */
+
+/* Reset básico */
+h1, h2, h3, h4, p {
+  margin-top: 0;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 15px;
+  line-height: 1.5;
+  color: #333;
+  margin: 0;
+  padding: 0;
+}
+
+/* Contenedor principal (ficha) */
+.email-container {
+  max-width: 690px;
+  margin: 32px auto;
+  background-color: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+/* Header genérico */
+.email-header {
+  padding: 12px 24px;
+}
+
+.email-header p {
+  margin: 6px 0;
+  line-height: 1.4;
+}
+
+/* Body genérico */
+.email-body {
+  padding-top: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+/* Título genérico (sin look) */
+.body-title {
+  font-weight: bold;
+  margin-top: 6px;
+  margin-bottom: 0;
+}
+
+/* Contenido textual */
+.content p {
+  line-height: 1.55;
+  margin-top: 0;
+  margin-bottom: 6px;
+}
+
+/* CTA wrapper neutro */
+.cta {
+  margin: 0;
+  text-align: center;
+}
+
+/* Botón base (sin color) */
+.btn {
+  display: inline-block;
+  padding: 12px 20px;
+  border-radius: 6px;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+/* Links genéricos */
+a.link {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+/* Footer genérico */
+.email-footer {
+  padding: 16px 25px;
+  font-size: 12px;
+  text-align: center;
+  line-height: 1.15;
+}
+
+.email-footer p {
+  margin: 2px 0;
+}
+/* ============================= */
+/* ===    FIN CSS GLOBAL     === */
+/* ============================= */
+
+/* ============================= */
+/* CSS ESPECÍFICO – GOOGLE */
+/* ============================= */
+
+/* Contenedor de marca (opcional, por claridad) */
+.brand-google {}
+
+/* Banner de alerta */
+.brand-google .banner {
+  background-color: #d93025; /* Rojo alerta Google */
+  color: #ffffff;
+  padding: 16px 24px;
+  font-size: 21px;
+  font-weight: 700;
+  text-align: center;
+}
+
+/* Contenido */
+.brand-google .content {
+  padding: 24px;
+}
+
+/* Caja de información */
+.brand-google .info-box {
+  background-color: #f1f3f4;
+  border-radius: 4px;
+  padding: 12px 15px;
+  margin: 16px 0;
+  font-size: 14px;
+}
+
+/* CTA – patrón Decathlon, skin Google */
+.brand-google .cta {
+  margin-top: 14px;
+  text-align: left;
+}
+
+.brand-google .btn-google {
+  background-color: #1a73e8; /* Azul Google */
+  color: #ffffff !important;
+  font-size: 14px;
+  padding: 10px 22px;
+}
+
+.brand-google .btn-google:hover {
+  background-color: #1558b0;
+}
+
+/* Neutralizar links para evitar azul por defecto */
+.brand-google a.btn,
+.brand-google a.btn:visited,
+.brand-google a.btn:hover,
+.brand-google a.btn:active {
+  text-decoration: none !important;
+  color: inherit;
+}
+
+/* ============================= */
+/* FIN CSS ESPECÍFICO – GOOGLE */
+/* ============================= */
+
+
+
+/* ============================= */
+/* PARA HACER DEBUG             */
+/* ============================= */
+/* Para ver quien deja huecos */
+/*
+.logo-block,
+.body-title,
+.email-body,
+.cta,
+.content {
+  outline: 1px solid red;
+}
+*/
+
+
+</style>
+
+
+
+
+<!-- ================================= -->
+<!-- EMAIL CONTAINER -->
+<!-- ================================= -->
+<div class="email-container brand-google">
+
+  <!-- ============================= -->
+  <!-- EMAIL HEADER -->
+  <!-- ============================= -->
+  <div class="email-header">
+    <p data-track="sender"><strong>De:</strong> Google &lt;no-reply@google.support&gt;</p>
+    <p><strong>Asunto:</strong> Alguien tiene tu contraseña</p>
+  </div>
+
+  <!-- Banner alerta -->
+  <div class="banner">
+    Alguien tiene tu contraseña
+  </div>
+
+  <!-- Contenido -->
+  <div class="content">
+
+    <p>Hola:</p>
+
+    <p>
+      Alguien acaba de utilizar tu contraseña para intentar iniciar sesión en tu cuenta de Google.
+    </p>
+
+    <!-- Info box -->
+    <div class="info-box">
+      <strong>Información:</strong><br>
+      viernes, 14 de julio de 2026, 9:43:46 (GMT+01:00)<br>
+      Slatina, Rumanía<br>
+      Navegador Firefox
+    </div>
+
+    <p>
+      Google ha detenido este intento de inicio de sesión.
+      Debes cambiar tu contraseña de inmediato.
+    </p>
+
+    <!-- CTA (patrón Decathlon, instrumentado) -->
+    <div class="cta">
+      <a
+        class="link btn btn-google"
+        href="https://accounts.google.com/security"
+        data-track="cta"
+        onclick="return false;"
+      >
+        Cambiar contraseña
+      </a>
+    </div>
+
+    <p>
+      <br>
+      Un saludo,<br>
+      El equipo de Google
+    </p>
+
+  </div>
+
+  <!-- Footer (canónico) -->
+  <div class="email-footer">
+    © 2026 Google LLC. Todos los derechos reservados.<br>
+    Este mensaje se ha generado automáticamente. Por favor, no respondas a este correo.
+  </div>
+
+</div>
+
+
+</body>
+</html>
+

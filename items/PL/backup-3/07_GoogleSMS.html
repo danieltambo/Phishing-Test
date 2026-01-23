@@ -86,10 +86,12 @@
 
 .sms-root {
   display: flex;
-  justify-content: center;   /* ← centrado horizontal */
-  padding: 32px 0;           /* aire vertical */
-}
+  justify-content: center;
+  align-items: center;
 
+  /* separación visual respecto al título del test */
+  padding: 32px 0;
+}
 
 /* ============================= */
 /* CSS ESPECÍFICO – BBVA SMS */
@@ -106,6 +108,8 @@
   text-decoration: underline;
 }
 
+
+
 </style>
 
 
@@ -117,41 +121,43 @@
     <div class="sms-screen">
 
       <div class="sms-header">
-        Seur
+        646-555-0110
       </div>
 
       <div class="sms-time">
-        19.25
+        9:36
       </div>
 
       <div class="sms-message">
         <!-- CONTENIDO DEL SMS AQUÍ -->
-          SEUR: La entrega se ha suspendido porque su pedido no tiene número de casa.
-
-          <br><br>
-
-          Revise y complete los datos de su domicilio
-          lo antes posible en el siguiente enlace:
-
-          <br>
-          <a
-            href="https://www.seur-ipoif.cfd/es"
-            data-track="sms-link"
-            onclick="return false;"
-          >
-            seur-ipoif.cfd/es
-          </a>
-
-        <br>
-        <br>
-        <br>  
-        <br>
+        
+        ¿Has solicitado un cambio de contraseña?<br><br>
+        En caso afirmativo, ignora este mensaje.<br> <br>
+        
+        De lo contrario, responde con
+        <strong data-track="sms-cta">CANCELAR</strong>
+        + el código de verificación.  
       </div>
+
+      <br>
+
+      <div class="sms-time">
+        9:41
+      </div>
+
+      <div class="sms-message">
+        Tu código de verificación es
+        <strong data-track="sms-otp">131025</strong>.
+      </div>
+
       <br>
       <div class="ios-home-indicator"></div>
+
+      </div>
 
     </div>
   </div>
 </div>
+
 </body>
 </html>
