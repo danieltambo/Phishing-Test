@@ -36,7 +36,7 @@ def render_items():
     # Información de progreso para el participante
     i = current_index()
     total = total_items()
-    st.caption(f"Ejercicio {i+1} de {total}")
+    st.caption(f"Mensaje {i+1} de {total}")
     
 
     # Composición del estímulo completo: correo HTML + panel de decisión
