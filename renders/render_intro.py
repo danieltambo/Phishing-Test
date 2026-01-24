@@ -57,3 +57,4 @@ def render_intro():
 
             # Avanza a la fase de ítems tras completar la introducción
             go_to("ITEMS")
+            

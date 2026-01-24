@@ -42,24 +42,29 @@ def render_context():
     # 👉 A partir de aquí, la primera pregunta aparece directamente
     # render_context_question_1()
 
-    # Instrucciones generales para interpretar la escala de respuesta de las preguntas tipo Likert.
-
-    st.markdown( """
-        <div style=" font-size:0.9rem; font-style:italic; color:#6b7280; margin-bottom:1.2rem;">
-            En las siguientes afirmaciones, utiliza la escala: 
-            1 = Poco · 5 = Mucho
-        </div>  
-        """, unsafe_allow_html=True )
 
     # Render secuencial de todas las preguntas de contexto definidas en eñ config.
     
     for q in CONTEXT_QUESTIONS:
-        #st.markdown(f"**{q['question']}**")
-        st.markdown(
-            f"<div style='margin-bottom:0.35rem; line-height: 1.35;'> {q['question']}</div>",
-            unsafe_allow_html=True
-        )
+        # OLD
+        # st.markdown(
+        #     f"<div style='margin-bottom:0.35rem; line-height: 1.35;'> {q['question']}</div>",
+        #     unsafe_allow_html=True
+        # )
+        
+        # --- TEXTO DE LA PREGUNTA ---
+        if q["type"] == "likert_5":
+            st.markdown(
+                f""" <div style="margin-bottom:0.35rem; line-height:1.35;">  {q['question']} <span style="font-size:0.8rem; font-style:italic; color:#6b7280; "> (1 = Poco · 5 = Mucho)  </span>    </div>
+                """, unsafe_allow_html=True
+            )
+        else:
+            st.markdown(
+                f"<div style='margin-bottom:0.35rem; line-height:1.35;'>{q['question']}</div>",
+                unsafe_allow_html=True
+            )
 
+        # --- TEXTO DE LA RESPUESTA ---
         if q["type"] == "choice":
             response = st.radio(
                 label="Escala de respuesta",
@@ -78,6 +83,7 @@ def render_context():
                 horizontal=True,
                 label_visibility="collapsed"
             )
+
 
         # Almacena la respuesta en el buffer temporal (aún no persistida).
         st.session_state.context_buffer[q["id"]] = response

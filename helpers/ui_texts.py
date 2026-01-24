@@ -20,7 +20,7 @@ HEADERS = {
     },
   
   "CONTEXT": {
-          "title": "Por último... ¿Cómo sueles responder a los correos en tu dia a dia?"
+          "title": "Por último... ¿Cómo sueles responder a los correos?"
       },
   
   "SAVE": {
@@ -92,7 +92,7 @@ Si deseas recibir información general sobre el estudio o resultados agregados, 
 
 CONTEXT_INTRO_TEXT = """
 <strong>Ya has terminado la parte principal del estudio.</strong><br>
-Ahora solo queda un breve cuestinario. <br>
+Solo quedan una pocas preguntas muy rapidas (1 min) <br>
 No hay respuestas correctas o incorrectas: nos interesa tu opinión.<br>
 """
 
@@ -116,19 +116,19 @@ CONTEXT_QUESTIONS = [
     },
     {
         "id": "CTX_02",
-        "question": "2. Suelo leer o responder correos de la empresa desde el teléfono móvil.",
+        "question": "2. Suelo leer o responder correos de la empresa desde el teléfono móvil - ",
         "type": "likert_5",
     },
     {
         "id": "CTX_03",
-        "question": "3. Cuando estoy en reuniones o en llamadas, suelo responder correos electrónicos.",
+        "question": "3. Cuando estoy en reuniones o en llamadas, suelo responder correos electrónicos - ",
         "type": "likert_5",
     },
     {
         "id": "CTX_04",
         "question": "4. Mi organización realiza simulaciones o campañas de correos engañosos (por ejemplo, phishing).",
         "type": "choice",
-        "options": ["Trimestral o más frecuente", "Anual", "Nunca", "No lo sé"]
+        "options": ["Trimestral o más frecuente", "Anual", "Nunca",  "No sé si hacen simulaciones", "Sé que hacen simulaciones pero no con que frecuencia"]
     },
     {
         "id": "CTX_05",
@@ -143,7 +143,7 @@ CONTEXT_QUESTIONS = [
     },
     {
         "id": "CTX_06",
-        "question": "6. Cuando recibo un correo de mi jefe o un correo que pide actuar con rapidez, me genera cierta inquietud.",
+        "question": "6. Cuando recibo un correo de mi jefe o un correo que pide actuar con rapidez, me genera cierta inquietud - ",
         "type": "likert_5",
     },
     {
@@ -154,7 +154,7 @@ CONTEXT_QUESTIONS = [
     },
     {
         "id": "CTX_08",
-        "question": "8. En general, me considero capaz de reconocer las señales de un correo engañoso.",
+        "question": "8. En general, me considero capaz de reconocer las señales de un correo engañoso - ",
         "type": "likert_5",
         "anchors": ["Nada capaz", "Muy capaz"]
     },
@@ -166,7 +166,7 @@ CONTEXT_QUESTIONS = [
     },
     {
         "id": "CTX_10",
-        "question": "10. En general, me considero vulnerable frente a correos engañosos.",
+        "question": "10. En general, me considero vulnerable frente a correos engañosos - ",
         "type": "likert_5",
         "anchors": ["Nada vulnerable", "Muy vulnerable"]
     },
