@@ -20,7 +20,7 @@ HEADERS = {
     },
   
   "CONTEXT": {
-          "title": "Por último... ¿Cómo sueles responder a los correos?"
+          "title": "Preguntas finales"
       },
   
   "SAVE": {
@@ -91,8 +91,8 @@ Si deseas recibir información general sobre el estudio o resultados agregados, 
 # -------------------------------------------------
 
 CONTEXT_INTRO_TEXT = """
-<strong>Ya has terminado la parte principal del estudio.</strong><br>
-Solo quedan una pocas preguntas muy rapidas (1 min) <br>
+<strong>Has terminado la parte principal del estudio.</strong><br>
+Solo quedan unas preguntas muy rapidas (1 min) <br>
 No hay respuestas correctas o incorrectas: nos interesa tu opinión.<br>
 """
 
@@ -116,60 +116,85 @@ CONTEXT_QUESTIONS = [
     },
     {
         "id": "CTX_02",
-        "question": "2. Suelo leer o responder correos de la empresa desde el teléfono móvil - ",
-        "type": "likert_5",
+        "question": "2. Suelo leer o responder correos del trabajo desde el teléfono móvil.",
+        "type": "choice",
+        "options": ["Nunca", "A veces", "A menudo",  "Siempre"]
+        #"type": "likert_5",
     },
     {
         "id": "CTX_03",
-        "question": "3. Cuando estoy en reuniones o en llamadas, suelo responder correos electrónicos - ",
-        "type": "likert_5",
+        "question": "3. Cuando estoy en reuniones o en llamadas, suelo responder correos electrónicos.",
+        "type": "choice", 
+        "options": ["Nunca", "A veces", "A menudo",  "Siempre"]
     },
     {
         "id": "CTX_04",
-        "question": "4. Mi organización realiza simulaciones o campañas de correos engañosos (por ejemplo, phishing).",
+        "question": "4. Mi organización realiza simulaciones de phishing.",
         "type": "choice",
-        "options": ["Trimestral o más frecuente", "Anual", "Nunca",  "No sé si hacen simulaciones", "Sé que hacen simulaciones pero no con que frecuencia"]
+        "options": ["Sí", "No", "No lo sé"]
     },
     {
         "id": "CTX_05",
-        "question": "5. Si sospecho que un correo puede ser engañoso, suelo hacer lo siguiente:",
+        "question": "5. Cuando sospecho que un correo puede ser engañoso, lo primero que hago es:",
         "type": "choice",
         "options": [
-            "Informarlo a la organización",
-            "Borrarlo sin más",
-            "Consultarlo con alguien",
-            "No hago nada"
+            "Lo ignoro",
+            "Lo elimino",
+            "Lo consulto con un compañero",
+            "Lo reporto a través del canal oficial"
         ]
     },
     {
         "id": "CTX_06",
-        "question": "6. Cuando recibo un correo de mi jefe o un correo que pide actuar con rapidez, me genera cierta inquietud - ",
-        "type": "likert_5",
+        "question": "6. Cuando recibo un correo de mi superior, siento presión por responder rápido.",
+        "type": "choice",
+        "options": ["No me influye", "Me influye en parte", "Me influye claramente"]
     },
     {
         "id": "CTX_07",
-        "question": "7. Que yo sepa, he recibido alguna vez un correo engañoso (phishing).",
+        "question": "7. ¿Alguna vez has sufrido un fraude digital (por ejemplo, phishing, estafa online, suplantación de identidad)?",
         "type": "choice",
         "options": ["Sí", "No", "No estoy seguro"]
     },
     {
         "id": "CTX_08",
-        "question": "8. En general, me considero capaz de reconocer las señales de un correo engañoso - ",
+        "question": "8. Considero que soy capaz de reconocer cuando un correo es malicioso ",
         "type": "likert_5",
         "anchors": ["Nada capaz", "Muy capaz"]
     },
     {
         "id": "CTX_09",
-        "question": "9. En este estudio, creo que he acertado al identificar si los correos eran engañosos o normales.",
+        "question": "9. En este estudio, creo que he identificado correctamente los correos.",
         "type": "choice",
-        "options": ["Todos o casi todos", "Algunos", "Aproximadamente la mitad", "No lo sé"]
+        "options": ["En todos o casi todos", "En algunos", "En unos pocos correos o ninguno", "No lo sé"]
     },
     {
         "id": "CTX_10",
-        "question": "10. En general, me considero vulnerable frente a correos engañosos - ",
-        "type": "likert_5",
-        "anchors": ["Nada vulnerable", "Muy vulnerable"]
+        "question": "10. Me considero vulnerable frente a correos engañosos.",
+        "type": "choice", 
+        "options": ["Nada", "Algo", "Bastante",  "Mucho"]
     },
+    {
+        "id": "CTX_11",
+        "question": "11. Edad:",
+        "type": "choice", 
+        "options": ["18–30", "31–45", "46–60",  "61 o más"]
+    },
+    {
+        "id": "CTX_12",
+        "question": "12. Género:",
+        "type": "choice", 
+        "options": ["Mujer", "Hombre", "No binario",  "Otra identidad", "Prefiero no decirlo"]
+    },
+    {
+        "id": "CTX_13",
+        "question": "13. Rol principal en el trabajo:",
+        "type": "choice", 
+        "options": ["Técnico / Especialista", "Administrativo", "Atención al público / Comercial",  "Gestión o Dirección", "Otro"]
+    },
+
+
+
 ]
 
 # -------------------------------------------------
@@ -177,8 +202,8 @@ CONTEXT_QUESTIONS = [
 # Se muestra tras finalizar el test y confirmar que las respuestas han sido registradas.
 # -------------------------------------------------
 SAVE_TEXT = """
-<strong>Gracias por tu participación.</strong><br><br>
-Tus respuestas se han registrado correctamente y contribuirán a un proyecto de investigación sobre cómo las personas interpretan correos electrónicos engañosos.<br><br>
+Tu participación contribuirá a un proyecto de investigación sobre cómo las personas interpretan correos electrónicos engañosos.
+
 El estudio se encuentra en fase de desarrollo, por lo que los datos se analizarán de forma agregada con fines exclusivamente científicos.
 
 Si has facilitado tu correo electrónico, podrás recibir información general sobre el estudio o sobre los resultados globales en el futuro.

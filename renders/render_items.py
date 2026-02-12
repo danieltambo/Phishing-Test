@@ -16,6 +16,8 @@ from helpers.html_loader import load_shared_html
 from helpers.item_service import init_items, current_item, record_response, has_response, next_item, is_last, current_index, total_items
 from helpers.event_logger_service import init_event_logger, push, freeze_item_events
 from helpers.events import is_decision_event, extract_decision, is_next_event
+from helpers.order_service import random_items
+
 
 
 # -------------------------------------------------
@@ -26,8 +28,11 @@ from helpers.events import is_decision_event, extract_decision, is_next_event
 def render_items():
     
     # 1️⃣  Inicialización idempotente del servicio de ítems y del sistema de captura de eventos.
-    items = load_pl_items()
-    init_items(items)
+    if "_items" not in st.session_state:  # Solo lo hacemos una vez por sesion
+        items = load_pl_items()
+        items = random_items(items) # Reordenamos los items de forma aleatoria por nivel de dificultad
+        init_items(items)
+        
     init_event_logger() 
 
     # 2️⃣ Recupera el ítem activo según el índice actual

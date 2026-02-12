@@ -70,13 +70,35 @@ def has_response() -> bool:
 
 def record_response(value) -> None:
     item = current_item()
+    item_id = item["item_id"]
 
-    st.session_state["_item_responses"].append({
-        "item_id": item["item_id"],
+    responses = st.session_state["_item_responses"]
+
+    # eliminar respuesta previa si existe
+    responses[:] = [
+        r for r in responses
+        if r["item_id"] != item_id
+    ]
+
+    # añadir la nueva
+    responses.append({
+        "item_id": item_id,
         "item_type": item.get("item_type", "PL"),
         "value": value,
-        "timestamp": int(time.time() * 1000) 
+        "timestamp": int(time.time() * 1000)
     })
+
+
+# ELIMINAR
+#
+# def record_response(value) -> None:
+#     item = current_item()
+#     st.session_state["_item_responses"].append({
+#         "item_id": item["item_id"],
+#         "item_type": item.get("item_type", "PL"),
+#         "value": value,
+#         "timestamp": int(time.time() * 1000) 
+#     })
 
 
 # -------------------------------------------------

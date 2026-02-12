@@ -14,6 +14,7 @@ import streamlit as st
 from helpers.flow_helpers import init_flow, render_current_state
 from helpers.session import init_session
 from helpers.ui_layout import  render_layout
+from helpers.browser_restrictions import require_desktop
 from flow import build_state_map, INTRO
 from renders import render_intro, render_items, render_context, render_save
 
@@ -39,6 +40,12 @@ STATE_MAP = build_state_map(
 
 def main():
     
+    # -------------------------------------------------
+    # Restricción que solo se pueda acceder desde un desktop
+    # -------------------------------------------------
+    require_desktop(min_width=1000)
+
+
     # -------------------------------------------------
     # Inicialización secuencial de la aplicación:
     # 1. Sesión y identificadores

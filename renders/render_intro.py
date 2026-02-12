@@ -58,3 +58,6 @@ def render_intro():
             # Avanza a la fase de ítems tras completar la introducción
             go_to("ITEMS")
             
+            # Esto es una prueba para acortar
+            #go_to("CONTEXT")
+            

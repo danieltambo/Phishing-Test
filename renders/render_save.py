@@ -16,6 +16,7 @@ from helpers.event_logger_service import get_all_events
 from helpers.session import get_session_id
 from helpers.gsheet import  append_rows_dicts
 from helpers.response_service import get_all_responses
+from helpers.scoring import compute_score
 from helpers.ui_texts import SAVE_TEXT
 from config import GSHEET_ID, RESPONSES_SHEET, EVENTS_SHEET, CONTACT_INFO_SHEET
 
@@ -112,5 +113,15 @@ def render_save():
         persistir_todo()
 
     st.success("Los datos se han guardado correctamente.")
+    
+    # Calculo del Score para mostrar en pantalla
+    correct, total = compute_score()
+
+    if total > 0:
+        st.markdown(f"#### Tu resultado\nHas identificado correctamente **{correct} de {total} mensajes.**\n")
+
+
+    # Mensaje final de agradecimiento    
     st.markdown(SAVE_TEXT, unsafe_allow_html=True)
 
+        

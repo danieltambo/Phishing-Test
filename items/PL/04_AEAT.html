@@ -105,6 +105,71 @@ a.link {
 /* ============================= */
 /* ===    FIN CSS GLOBAL     === */
 /* ============================= */
+
+
+
+/* ============================= */
+/* Sender tipo Gmail  */
+/* ============================= */
+.sender-line {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.sender-details-wrapper {
+  display: inline-block;
+  position: relative;
+}
+
+.sender-summary {
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+  list-style: none;
+  gap: 4px;
+}
+
+.sender-summary::-webkit-details-marker {
+  display: none;
+}
+
+.arrow {
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 6px solid #3c4043;  /* color aquí */
+  display: inline-block;
+  margin-left: 4px;
+  transform: translateY(1px);
+}
+
+/* rotación al abrir */
+details[open] .arrow {
+  transform: rotate(270deg) translateY(-1px);
+}
+
+
+.sender-details {
+  position: absolute;
+  top: 24px;
+  left: 0;
+  min-width: 360px;
+  padding: 12px 14px;
+  background-color: #ffffff;   /* ← blanco */
+  border: 1px solid #dadce0;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);  /* ← sombra sutil */
+  font-size: 13px;
+  color: #444;
+  line-height: 1.4;
+  z-index: 10;
+}
+
+
+
+
 /* ============================= */
 /* CSS ESPECÍFICO – AEAT */
 /* ============================= */
@@ -124,7 +189,7 @@ a.link {
 }
 
 .brand-aeat .logo {
-  max-width: 260px;
+  max-width: 230px;
   height: auto;
 }
 
@@ -188,12 +253,22 @@ a.link {
   <!-- EMAIL HEADER -->
   <!-- ============================= -->
   <div class="email-header">
-    <p data-track="sender">
+    <div class="sender-line" data-track="sender">
       <strong>De:</strong>
-      <span  class="sender-hover"  data-track="sender_hover"  title="notificaciones@agencia-tributo.com" >
-          Agencia 
-       </span> 
-    </p>
+
+      <details class="sender-details-wrapper">
+        <summary class="sender-summary" tabindex="0">
+          Agencia <span class="arrow"></span>
+        </summary>
+
+        <div class="sender-details">
+          <p><strong>De:</strong> Agencia &lt;notificaciones@agencia-tributo.com&gt;</p>
+          <p><strong>Fecha:</strong> 19 may 2026, 11:47</p>
+        </div>
+      </details>
+    </div>
+
+
     <p>
       <strong>Asunto:</strong> Notificación de la Agencia Tributaria
     </p>
@@ -221,14 +296,14 @@ a.link {
     </h2>
 
     <p>
-      Su administración tributaria ha generado un escrito informativo a su nombre.
+      La Agencia Tributaria ha emitido una notificación a su NIF.
     </p>
 
     <p>
       <strong>Categoría:</strong> Comprobación limitada<br>
       <strong>Número de expediente:</strong> 9271221264<br>
       <strong>Asunto:</strong> Comunicado oficial<br>
-      <strong>Inicio de la actuación:</strong> 18/05/2025, 11:47 h
+      <strong>Inicio de la actuación:</strong> 18/05/2026, 11:47 h
     </p>
 
     <p>
@@ -254,7 +329,7 @@ a.link {
 
     <p>
       Atentamente,<br>
-      Agencia Estatal de Administración Tributaria (AEAT)
+      Agencia Tributaria
     </p>
 
   </div>
@@ -268,23 +343,6 @@ a.link {
   </div>
 
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 </body>

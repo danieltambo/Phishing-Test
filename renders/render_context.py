@@ -46,11 +46,6 @@ def render_context():
     # Render secuencial de todas las preguntas de contexto definidas en eñ config.
     
     for q in CONTEXT_QUESTIONS:
-        # OLD
-        # st.markdown(
-        #     f"<div style='margin-bottom:0.35rem; line-height: 1.35;'> {q['question']}</div>",
-        #     unsafe_allow_html=True
-        # )
         
         # --- TEXTO DE LA PREGUNTA ---
         if q["type"] == "likert_5":
@@ -97,8 +92,8 @@ def render_context():
         if not all_context_answered():
             st.warning("Por favor, responde a todas las preguntas antes de continuar.")
             
-            # Eliminar el siguiente # en produccion. Solo para pruebas.
-            # return # <- En produccion quitar # antes de return
+            # En pruebas poner # antes de return. En produccion eliminar #.
+            # return 
         
         # Convierte el buffer temporal en respuestas definitivas de tipo CTX.
         freeze_context_responses(st.session_state.context_buffer)

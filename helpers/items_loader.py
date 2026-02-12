@@ -27,16 +27,42 @@ from config import ITEMS_PL_DIR
 # ]
 # -------------------------------------------------
 
+from helpers.item_bank import ITEM_BANK
+
 def load_pl_items():
+
     files = sorted(ITEMS_PL_DIR.glob("*.html"))
-    return [
-        {
-            # El identificador del ítem se deriva del nombre del archivo HTML
-            "item_id": f.stem,   # ITEM001_DECATHLON
+
+    items = []
+
+    for f in files:
+        item_id = f.stem
+        metadata = ITEM_BANK.get(item_id)
+
+        if metadata is None:
+            raise ValueError(f"No metadata defined for item '{item_id}' in ITEM_BANK")
+
+        items.append({
+            "item_id": item_id,
             "path": f,
-        }
-        for f in files
-    ]
+            "difficulty": metadata["difficulty"],
+            "canal": metadata["channel"],
+            "P_L": metadata["correct_answer"],
+        })
+
+    return items
+
+
+
+    # files = sorted(ITEMS_PL_DIR.glob("*.html"))
+    # return [
+    #     {
+    #         # El identificador del ítem se deriva del nombre del archivo HTML
+    #         "item_id": f.stem,   # ITEM001_DECATHLON
+    #         "path": f,
+    #     }
+    #     for f in files
+    # ]
 
 
 # -------------------------------------------------

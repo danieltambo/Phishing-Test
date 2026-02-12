@@ -106,6 +106,71 @@ a.link {
 /* ============================= */
 /* ===    FIN CSS GLOBAL     === */
 /* ============================= */
+
+
+
+/* ============================= */
+/* Sender tipo Gmail  */
+/* ============================= */
+.sender-line {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.sender-details-wrapper {
+  display: inline-block;
+  position: relative;
+}
+
+.sender-summary {
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+  list-style: none;
+  gap: 4px;
+}
+
+.sender-summary::-webkit-details-marker {
+  display: none;
+}
+
+.arrow {
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 6px solid #3c4043;  /* color aquí */
+  display: inline-block;
+  margin-left: 4px;
+  transform: translateY(1px);
+}
+
+/* rotación al abrir */
+details[open] .arrow {
+  transform: rotate(270deg) translateY(-1px);
+}
+
+
+.sender-details {
+  position: absolute;
+  top: 24px;
+  left: 0;
+  min-width: 160px;
+  padding: 12px 14px;
+  background-color: #ffffff;   /* ← blanco */
+  border: 1px solid #dadce0;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);  /* ← sombra sutil */
+  font-size: 13px;
+  color: #444;
+  line-height: 1.4;
+  z-index: 10;
+}
+
+
+
+
 /* ============================= */
 /* CSS ESPECÍFICO – SHEIN */
 /* ============================= */
@@ -182,11 +247,11 @@ a.link {
 
 /* Highlight box */
 .brand-shein .highlight-box {
-  border: 1px solid #ff4f7b;
+  border: 1px solid #dadce0;
+  background-color: #f8f9fa;
   border-radius: 8px;
   padding: 14px 16px;
   margin: 18px 0;
-  background-color: #fff7fa;
 }
 
 .brand-shein .highlight-title {
@@ -206,7 +271,7 @@ a.link {
 }
 
 .brand-shein .btn-shein {
-  background-color: #ff2f6d;
+  background-color: #202124;
   color: #ffffff;
   border: none;
   border-radius: 999px;
@@ -296,12 +361,21 @@ a.link {
   <!-- HEADER -->
   <!-- ============================= -->
   <div class="email-header">
-     <p data-track="sender">
+    <div class="sender-line" data-track="sender">
       <strong>De:</strong>
-      <span  class="sender-hover"  data-track="sender_hover"  title="feedback@shein.com" >
-        SHEIN
-      </span> 
-    </p>
+
+      <details class="sender-details-wrapper">
+        <summary class="sender-summary" >
+          Shein <span class="arrow"></span>
+        </summary>
+
+        <div class="sender-details">
+          <p><strong>De:</strong> Shein &lt;feedback@shein.com&gt;</p>
+        </div>
+      </details>
+    </div>
+
+
     <p>
       <strong>Asunto:</strong> Share your feedback & enter to win
     </p>
