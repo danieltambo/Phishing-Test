@@ -184,7 +184,7 @@ CONTEXT_QUESTIONS = [
         "id": "CTX_12",
         "question": "12. Género:",
         "type": "choice", 
-        "options": ["Mujer", "Hombre", "No binario",  "Otra identidad", "Prefiero no decirlo"]
+        "options": ["Mujer", "Hombre", "No binario", "Prefiero no decirlo"]
     },
     {
         "id": "CTX_13",

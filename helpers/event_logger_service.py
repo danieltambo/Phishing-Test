@@ -6,6 +6,8 @@
 
 
 import streamlit as st
+import uuid
+
 
 # -------------------------------------------------
 # Inicializa las estructuras de event_logger en sesión.
@@ -19,6 +21,10 @@ def init_event_logger():
 
     if "events_buffer" not in st.session_state:
         st.session_state.events_buffer = []
+    
+    if "event_sequence_index" not in st.session_state:
+        st.session_state.event_sequence_index = {}
+
 
 
 # -------------------------------------------------
@@ -41,6 +47,10 @@ def freeze_item_events(item_id: str):
     # Lista temporal para los eventos congelados de este ítem
     frozen_events = []
 
+    # Inicializar contador si no existe para este item
+    if item_id not in st.session_state.event_sequence_index:
+        st.session_state.event_sequence_index[item_id] = 0
+
     # -------------------------------------------------
     # Transformación de eventos crudos a filas finales.
     # Se normaliza la estructura de cada evento antes
@@ -48,8 +58,15 @@ def freeze_item_events(item_id: str):
     # -------------------------------------------------
 
     for e in st.session_state["current_item_events"]:
+
+          # Incrementar secuencia
+        st.session_state.event_sequence_index[item_id] += 1
+        seq = st.session_state.event_sequence_index[item_id]
+
         row = {
+            "event_id": str(uuid.uuid4()),
             "item_id": item_id,
+            "sequence_index": seq,
             "event": e.get("type"),
             "target": e.get("target"),
             "timestamp": e.get("ts"),

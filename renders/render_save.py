@@ -82,8 +82,10 @@ def persistir_todo():
 
     for e in events:
         events_to_save.append({
+            "event_id": e.get("event_id"),
             "session_id": session_id,
             "item_id": e.get("item_id"),
+            "sequence_index": e.get("sequence_index"),
             "event": e.get("event"),
             "target": e.get("target"),
             "timestamp": e.get("timestamp"),

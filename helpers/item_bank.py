@@ -26,12 +26,12 @@ _ITEM_LIST = [
     {"item_id": "16_GoogleDrive", "correct_answer": "legitimo", "difficulty": "medio", "channel": "drive"},
     {"item_id": "17_Iberdrola", "correct_answer": "phishing", "difficulty": "medio", "channel": "mail"},
     {"item_id": "18_Seur", "correct_answer": "phishing", "difficulty": "medio", "channel": "sms"},
-    {"item_id": "19_GoogleAlert", "correct_answer": "legitimo", "difficulty": "medio", "channel": "mail"},
     {"item_id": "20_Starbucks", "correct_answer": "legitimo", "difficulty": "medio", "channel": "mail"},
     {"item_id": "22_UPS_Incidencia", "correct_answer": "phishing", "difficulty": "medio", "channel": "mail"},
     {"item_id": "24_AmazonCuenta", "correct_answer": "legitimo", "difficulty": "medio", "channel": "mail"},
     
     # --- ALTO ---
+    {"item_id": "19_GoogleAlert", "correct_answer": "phishing", "difficulty": "alto", "channel": "mail"},
     {"item_id": "21_Apple", "correct_answer": "legitimo", "difficulty": "alto", "channel": "mail"},
     {"item_id": "23_CaixaBank", "correct_answer": "phishing", "difficulty": "alto", "channel": "mail"},
     {"item_id": "25_DeptFinazas", "correct_answer": "phishing", "difficulty": "alto", "channel": "drive"},
@@ -39,7 +39,9 @@ _ITEM_LIST = [
     {"item_id": "26_UPS_Entrega", "correct_answer": "legitimo", "difficulty": "alto", "channel": "sms"},
     {"item_id": "28_LinkedIn", "correct_answer": "phishing", "difficulty": "alto", "channel": "mail"},
     {"item_id": "29_DHL", "correct_answer": "legitimo", "difficulty": "alto", "channel": "whatsapp"},
+    {"item_id": "30_Correos", "correct_answer": "legitimo", "difficulty": "alto", "channel": "sms"},
     
+
 ]
 
 

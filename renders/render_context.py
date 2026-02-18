@@ -93,7 +93,7 @@ def render_context():
             st.warning("Por favor, responde a todas las preguntas antes de continuar.")
             
             # En pruebas poner # antes de return. En produccion eliminar #.
-            # return 
+            return 
         
         # Convierte el buffer temporal en respuestas definitivas de tipo CTX.
         freeze_context_responses(st.session_state.context_buffer)

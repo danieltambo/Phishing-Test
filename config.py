@@ -11,8 +11,8 @@ GSHEET_ID = "1bH3O0TdAi0SZX39f_flRtZo9fLEjk6zHhPPsPI5Ieys"
 
 # Hojas donde se grabaran las respuestas y los eventos
 CONTACT_INFO_SHEET = "contact_info"
-RESPONSES_SHEET = "responses"
-EVENTS_SHEET = "events_raw"
+RESPONSES_SHEET = "responses_log"
+EVENTS_SHEET = "events_log"
 
 # -------------------------------------------------
 # Ruta base del proyecto.
