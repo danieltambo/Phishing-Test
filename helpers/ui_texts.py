@@ -13,7 +13,7 @@
 
 HEADERS = {
     "INTRO": {
-        "title": "  ¿Serías capaz de identificar un correo phishing?"
+        "title": " ¿Serías capaz de identificar un correo engañoso (phishing)?"
     },
     "ITEMS": {
         "title": "¿Cómo clasificarías este mensaje?"
@@ -47,7 +47,7 @@ INTRO_TEXT = """
 <ul>
   <li>Verás una serie de <strong>correos electrónicos</strong>, similares a los que podrías recibir habitualmente.</li>
   <li>En cada caso, deberás indicar si crees que se trata de un <strong>correo engañoso <em>(phishing)</em></strong> o un correo normal.</li>
-  <li>No es un examen: responde <strong>como lo harías en tu día a día. </strong></li>
+  <li>No es un examen: responde <strong>cómo lo harías en tu día a día. </strong></li>
 </ul>
 
 <ul>
@@ -123,7 +123,7 @@ CONTEXT_QUESTIONS = [
     },
     {
         "id": "CTX_03",
-        "question": "3. Cuando estoy en reuniones o en llamadas, suelo responder correos electrónicos.",
+        "question": "3. Cuándo estoy en reuniones o en llamadas, suelo responder correos electrónicos.",
         "type": "choice", 
         "options": ["Nunca", "A veces", "A menudo",  "Siempre"]
     },
@@ -135,13 +135,13 @@ CONTEXT_QUESTIONS = [
     },
     {
         "id": "CTX_05",
-        "question": "5. Cuando sospecho que un correo puede ser engañoso, lo primero que hago es:",
+        "question": "5. Cuándo sospecho que un correo puede ser engañoso, lo primero que hago es:",
         "type": "choice",
         "options": [
-            "Lo ignoro",
-            "Lo elimino",
-            "Lo consulto con un compañero",
-            "Lo reporto a través del canal oficial"
+            "Ignorarlo",
+            "Eliminarlo",
+            "Consultarlo con un compañero",
+            "Reportarlo a través del canal oficial"
         ]
     },
     {
