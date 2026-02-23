@@ -56,8 +56,8 @@ def render_intro():
                 st.session_state["email"] = email
 
             # Avanza a la fase de ítems tras completar la introducción
-            #go_to("ITEMS")
+            go_to("ITEMS")
             
             # Esto es una prueba para acortar
-            go_to("CONTEXT")
+            #go_to("CONTEXT")
             
