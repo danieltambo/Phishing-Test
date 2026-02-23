@@ -28,8 +28,8 @@ def render_intro():
     st.markdown(CONSENT_TEXT)
 
     # El usuario debe aceptar explícitamente el consentimient antes de poder iniciar el estudio.
-    consent = st.checkbox( "He leído la información y acepto participar en el estudio",
-            key="consent_checkbox")
+    consent = st.checkbox( "He leído la información y acepto participar en el estudio", key="consent_checkbox")
+    
         
     email = None
     if consent:
@@ -56,8 +56,8 @@ def render_intro():
                 st.session_state["email"] = email
 
             # Avanza a la fase de ítems tras completar la introducción
-            go_to("ITEMS")
+            #go_to("ITEMS")
             
             # Esto es una prueba para acortar
-            #go_to("CONTEXT")
+            go_to("CONTEXT")
             

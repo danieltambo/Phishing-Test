@@ -116,7 +116,7 @@ CONTEXT_QUESTIONS = [
     },
     {
         "id": "CTX_02",
-        "question": "2. Suelo leer o responder correos del trabajo desde el teléfono móvil.",
+        "question": "2. Suelo leer o responder correos desde el teléfono móvil.",
         "type": "choice",
         "options": ["Nunca", "A veces", "A menudo",  "Siempre"]
         #"type": "likert_5",
@@ -131,7 +131,7 @@ CONTEXT_QUESTIONS = [
         "id": "CTX_04",
         "question": "4. Mi organización realiza simulaciones de phishing.",
         "type": "choice",
-        "options": ["Sí", "No", "No lo sé"]
+        "options": ["Sí", "No", "No lo sé", "No trabajo en una organización"]
     },
     {
         "id": "CTX_05",
@@ -190,7 +190,7 @@ CONTEXT_QUESTIONS = [
         "id": "CTX_13",
         "question": "13. Rol principal en el trabajo:",
         "type": "choice", 
-        "options": ["Técnico / Especialista", "Administrativo", "Atención al público / Comercial",  "Gestión o Dirección", "Otro"]
+        "options": ["Técnico / Especialista", "Administrativo", "Atención al público / Comercial",  "Gestión o Dirección", "No trabajo actualmente", "Otro"]
     },
 
 
