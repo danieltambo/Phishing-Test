@@ -92,7 +92,7 @@ Si deseas recibir información general sobre el estudio o resultados agregados, 
 
 CONTEXT_INTRO_TEXT = """
 <strong>Has terminado la parte principal del estudio.</strong><br>
-Solo quedan unas preguntas muy rapidas (1 min) <br>
+Solo quedan unas preguntas muy rápidas (1 min) <br>
 No hay respuestas correctas o incorrectas: nos interesa tu opinión.<br>
 """
 
