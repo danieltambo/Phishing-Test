@@ -32,7 +32,7 @@ _ITEM_LIST = [
     
     # --- ALTO ---
     {"item_id": "19_GoogleAlert", "correct_answer": "phishing", "difficulty": "alto", "channel": "mail"},
-    {"item_id": "21_Apple", "correct_answer": "legitimo", "difficulty": "alto", "channel": "mail"},
+    {"item_id": "21_Apple", "correct_answer": "phishing", "difficulty": "alto", "channel": "mail"},
     {"item_id": "23_CaixaBank", "correct_answer": "phishing", "difficulty": "alto", "channel": "mail"},
     {"item_id": "25_DeptFinazas", "correct_answer": "phishing", "difficulty": "alto", "channel": "drive"},
     {"item_id": "27_Shein", "correct_answer": "phishing", "difficulty": "alto", "channel": "mail"},
